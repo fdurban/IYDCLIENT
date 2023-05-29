@@ -69,3 +69,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 # IYDCLIENT
+
+Client Routes
+
+| URL  | Description    |  Protected  | 
+| ------------- | ------------- | ------------- | 
+| `/` | index page |
+| `/cards` | Card gallery page |
+| `/cards/categories` | Category gallery page | ?????
+| `/cards/category/:category` | Cards by category |
+| `/cards/create`| create card page |✅|
+| `/profile` | User profile |
+| `/signup`| SignUp Page |
+| `/login`| LogIn Page |
