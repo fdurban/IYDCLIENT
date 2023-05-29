@@ -75,11 +75,10 @@ Client Routes
 | URL  | Description    |  Protected  | 
 | ------------- | ------------- | ------------- | 
 | `/` | index page |
-| `/categorygalery` | Category gallery page |
-| `/topicsgalery` | Topic gallery page |
+| `/cards` | Card gallery page |
+| `/cards/categories` | Category gallery page | ?????
+| `/cards/category/:category` | Cards by category |
+| `/cards/create`| create card page |✅|
+| `/profile` | User profile |
 | `/signup`| SignUp Page |
 | `/login`| LogIn Page |
-| `/createcategory`| create category page |
-| `/createtopic`| create topic page |✅|
-| `/profile`| Profile Page|
-
