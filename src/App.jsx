@@ -1,10 +1,18 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.css';
+import './App.css'
+import Navigation from './components/Navigation/Navigation'
+import AppRoutes from './routes/AppRoutes'
+import Footer from './components/Footer/Footer'
 
 function App() {
+
   return (
-    <h1>Is your day!</h1>
-  );
+    <>
+      <Navigation />
+      <AppRoutes />
+      <Footer />
+    </>
+  )
 }
 
-export default App;
+export default App

@@ -1,20 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
+
 import App from './App'
-import Navigation from './components/Navigation/Navigation'
+
 import { BrowserRouter as Router } from "react-router-dom"
-import Footer from './components/Footer/Footer'
+import { ThemeProviderWrapper } from './contexts/theme.contex'
+import { AuthProviderWrapper } from './contexts/auth.context'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Router>
-      <Navigation />
-      <App />
-      <Footer />
-    </Router>
+    <AuthProviderWrapper>
+      <ThemeProviderWrapper>
+        <Router>
+          <App />
+        </Router>
+      </ThemeProviderWrapper>
+    </AuthProviderWrapper>
   </React.StrictMode>
-);
-
-
+)
