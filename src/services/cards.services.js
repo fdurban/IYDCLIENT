@@ -11,6 +11,11 @@ class CardsService {
     getCards() {
         return this.api.get('/all')
     }
+
+    getCardsByOwner(owner) {
+        return this.api.get(`/${owner}`)
+    }
+
 }
 
 const cardsService = new CardsService()

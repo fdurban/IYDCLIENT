@@ -26,21 +26,26 @@ const Navigation = () => {
                         <Nav.Link as="span">
                             <Link to="/cards">Galery</Link>
                         </Nav.Link>
-                        <Nav.Link as="span">
-                            <Link to="/signup">Sing Up</Link>
-                        </Nav.Link>
-                        <Nav.Link as="span">
-                            <Link to="/login">Log In</Link>
-                        </Nav.Link>
-                        <Nav.Link as="span" onClick={logout}>Cerrar sesión</Nav.Link>
                         {
                             user
-                            &&
-                            <Nav.Link as="span">
-                                <Link to="/profile">Hello {user.username}</Link>
-                            </Nav.Link>
+                                ?
+                                <>
+                                    &&
+                                    <Nav.Link as="span" onClick={logout}>Log off</Nav.Link>
+                                    <Nav.Link as="span">
+                                        <Link to="/profile">Hello {user.username}</Link>
+                                    </Nav.Link>
+                                </>
+                                :
+                                <>
+                                    <Nav.Link as="span">
+                                        <Link to="/signup">Sing Up</Link>
+                                    </Nav.Link>
+                                    <Nav.Link as="span">
+                                        <Link to="/login">Log In</Link>
+                                    </Nav.Link>
+                                </>
                         }
-
                     </Nav>
                 </Navbar.Collapse>
             </Container>

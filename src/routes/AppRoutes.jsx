@@ -1,21 +1,26 @@
 import { Route, Routes } from 'react-router-dom'
 import CardsListPage from '../pages/CardsListPage/CardsListPage'
 import LoginPage from '../pages/LoginPage/loginPage'
-
-
+import ProfilePage from '../pages/ProfilePage/ProfilePage'
+import SignupPage from '../pages/SignupPage/SignupPage'
+import PrivateRoute from './PrivateRoutes'
+import HomePage from '../pages/HomePage/HomePage'
+import NewCardPage from '../pages/CardFormPage/CardFormPage'
 
 
 const AppRoutes = () => {
 
     return (
         <Routes>
-            <Route path='/' element={<h1>Inicio</h1>} />
+            <Route path='/' element={< HomePage />} />
             <Route path='/cards' element={<CardsListPage />} />
             <Route path='/cards/categories' element={<h1>Cards-tegories</h1>} />
             <Route path='/cards/category/:category' element={<h1>Cards</h1>} />
-            <Route path='/cards/create' element={<h1>Create cards</h1>} />
-            <Route path='/profile' element={<h1>Profile</h1>} />
-            <Route path='/signup' element={<h1>Sign up!</h1>} />
+            <Route path='/cards/create' element={<NewCardPage />} />
+            <Route path='/profile' element={<PrivateRoute />}>
+                <Route path='' element={<ProfilePage />} />
+            </Route>
+            <Route path='/signup' element={<SignupPage />} />
             <Route path='/login' element={<LoginPage />} />
         </Routes>
     )
