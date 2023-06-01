@@ -16,6 +16,10 @@ class CardsService {
         return this.api.get(`/${owner}`)
     }
 
+    getCardsBySubject(subject) {
+        return this.api.get(`/${subject}`)
+    }
+
 }
 
 const cardsService = new CardsService()
