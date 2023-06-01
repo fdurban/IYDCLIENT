@@ -18,6 +18,7 @@ const AppRoutes = () => {
             <Route path='/cards/category/:category' element={<h1>Cards</h1>} />
             <Route path='/cards/create' element={<NewCardPage />} />
             <Route path='/profile' element={<PrivateRoute />}>
+                {/* TODO: REVISAR TÉCNICA DE PROTECCION DE RUTAS POR GRUSPO */}
                 <Route path='' element={<ProfilePage />} />
             </Route>
             <Route path='/signup' element={<SignupPage />} />

@@ -9,11 +9,16 @@ const CardsListPage = () => {
     const [cards, setCards] = useState([])
 
     useEffect(() => {
+        // TODO: DESACOPLAR EFECTOS DE LLAMADA INICIAL A LA API
+        loadCards()
+    }, [])
+
+    const loadCards = () => {
         cardsService
             .getCards()
             .then(({ data }) => setCards(data))
             .catch(err => console.log(err))
-    }, [])
+    }
 
     return (
         <Container>
@@ -23,7 +28,7 @@ const CardsListPage = () => {
                 {cards.map(elm => {
                     return (
                         <Col md={{ span: 4 }} key={elm._id}>
-                            <CardsComponents {...elm} />
+                            <CardsComponents cardInfo={elm} showFullInfo={false} />
                         </Col>
                     )
                 })}

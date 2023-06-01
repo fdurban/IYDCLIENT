@@ -40,6 +40,7 @@ const NewCardForm = () => {
                     <option>Other</option>
                 </Form.Select>
             </Form.Group>
+
             <Form.Group className="mb-3">
                 <Form.Check type="checkbox" label="Can't check this" disabled />
             </Form.Group>

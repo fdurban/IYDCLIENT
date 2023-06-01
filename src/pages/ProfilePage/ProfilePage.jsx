@@ -8,6 +8,7 @@ import cardsService from "../../services/cards.services"
 
 const ProfilePage = () => {
 
+    // TODO: HACER LLAMADA EN MONTAJE A LA API PARA TRAER INFO DEL USER, NO EL CONTEXTO
     const { user } = useContext(AuthContext)
 
     const [cards, setCards] = useState([])
@@ -24,6 +25,7 @@ const ProfilePage = () => {
             <h1>Hello, {user.username}!</h1>
             <hr />
             <Row>
+                {/* TODO: DESACOPLAR CARDSLIST */}
                 {cards.map(elm => {
                     return (
                         <Col md={{ span: 4 }} key={elm._id}>
