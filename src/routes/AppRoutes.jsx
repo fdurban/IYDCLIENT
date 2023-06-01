@@ -1,11 +1,12 @@
 import { Route, Routes } from 'react-router-dom'
 import CardsListPage from '../pages/CardsListPage/CardsListPage'
-import LoginPage from '../pages/LoginPage/loginPage'
+import LoginPage from '../pages/LoginPage/LoginPage'
 import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import SignupPage from '../pages/SignupPage/SignupPage'
 import PrivateRoute from './PrivateRoutes'
 import HomePage from '../pages/HomePage/HomePage'
 import NewCardPage from '../pages/CardFormPage/CardFormPage'
+import Mathematics from '../pages/Mathematics/MathematicsPage'
 
 
 const AppRoutes = () => {
@@ -20,9 +21,12 @@ const AppRoutes = () => {
             <Route path='/profile' element={<PrivateRoute />}>
                 {/* TODO: REVISAR TÉCNICA DE PROTECCION DE RUTAS POR GRUSPO */}
                 <Route path='' element={<ProfilePage />} />
+
             </Route>
             <Route path='/signup' element={<SignupPage />} />
             <Route path='/login' element={<LoginPage />} />
+
+            <Route path='/cards/subject/maths/:id' element={<Mathematics />} />
         </Routes>
     )
 }
