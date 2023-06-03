@@ -2,8 +2,7 @@ import { useState, useEffect } from "react"
 import { Button, Card } from "react-bootstrap"
 import cardsService from "../../services/cards.services"
 
-
-const CardResume = ({ content, setContent, onSubmmit }) => {
+const CardResume = ({ content, setContent, field, cardID }) => {
 
     const [isEditing, setIsEditing] = useState(false)
 
@@ -11,6 +10,12 @@ const CardResume = ({ content, setContent, onSubmmit }) => {
         setContent(e.target.value)
     }
 
+    const updateContentInServer = (field, value) => {
+        cardsService
+            .editCards(cardID, {
+                [field]: value
+            })
+    }
 
     if (!content) {
         return <h1> loading </h1>
@@ -38,11 +43,8 @@ const CardResume = ({ content, setContent, onSubmmit }) => {
                                 onChange={handleInputChange}
                             ></textarea>
                             <Button variant="warning" onClick={() => {
-                                onSubmmit()
+                                updateContentInServer(field, content)
                                 setIsEditing(!isEditing)
-
-
-
                             }}>Edit</Button>
                         </Card.Body>
                     </Card>

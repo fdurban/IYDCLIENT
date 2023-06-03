@@ -3,9 +3,7 @@ import cardsService from "../../services/cards.services"
 import { useEffect, useState } from "react"
 import CardResume from "../CardResume/CardResume"
 
-
 const CardMainContent = ({ cardInfoContent }) => {
-
 
     const cardID = cardInfoContent._id
     const [mainContent, setMainContent] = useState(cardInfoContent.main_content)
@@ -22,41 +20,26 @@ const CardMainContent = ({ cardInfoContent }) => {
         setResume4(cardInfoContent.resume4)
     }, [cardInfoContent])
 
-    const updateContentInServer = () => {
-        cardsService
-            .editCards(cardID, {
-                main_content: mainContent,
-                resume1,
-                resume2,
-                resume3,
-                resume4,
-            })
-    }
-
-
     if (!cardInfoContent) {
         return <h1> loading </h1>
     }
 
     return (
         <Container>
-
-            <CardResume content={mainContent} setContent={setMainContent} onSubmmit={updateContentInServer} />
+            <CardResume field={'main_content'} content={mainContent} setContent={setMainContent} cardID={cardID} />
+            <hr />
+            <CardResume field={'resume1'} content={resume1} setContent={setResume1} cardID={cardID} />
 
             <hr />
-            <CardResume content={resume1} setContent={setResume1} onSubmmit={updateContentInServer} />
+            <CardResume field={'resume2'} content={resume2} setContent={setResume2} cardID={cardID} />
 
             <hr />
-            <CardResume content={resume2} setContent={setResume2} onSubmmit={updateContentInServer} />
+            <CardResume field={'resume3'} content={resume3} setContent={setResume3} cardID={cardID} />
 
             <hr />
-            <CardResume content={resume3} setContent={setResume3} onSubmmit={updateContentInServer} />
-
-            <hr />
-            <CardResume content={resume4} setContent={setResume4} onSubmmit={updateContentInServer} />
-
+            <CardResume field={'resume4'} content={resume4} setContent={setResume4} cardID={cardID} />
         </Container >
-
     )
 }
+
 export default CardMainContent
