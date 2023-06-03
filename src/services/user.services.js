@@ -12,7 +12,7 @@ class UserService {
         return this.api.get('/getAllUsers')
     }
 
-    getUsersById(_id) {
+    getUsersById(id) {
         return this.api.get(`/${id}`)
     }
 }

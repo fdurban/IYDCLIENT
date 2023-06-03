@@ -20,6 +20,14 @@ class CardsService {
         return this.api.get(`/${subject}`)
     }
 
+    getCardsById(id) {
+        return this.api.get(`/${id}`)
+    }
+
+    editCards(id, cardData) {
+        return this.api.put(`/${id}/edit`, cardData)
+    }
+
 }
 
 const cardsService = new CardsService()
