@@ -53,4 +53,8 @@ const CardResume = ({ content, setContent, field, cardID }) => {
     )
 }
 
+<<<<<<< HEAD
 export default CardResume
+=======
+export default CardResume
+>>>>>>> cristian

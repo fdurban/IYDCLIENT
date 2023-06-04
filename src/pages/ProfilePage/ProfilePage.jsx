@@ -16,14 +16,7 @@ const ProfilePage = () => {
             <h1>Hello, <strong>{user.username}</strong>!</h1>
             <hr />
             <Row>
-                {/* TODO: DESACOPLAR CARDSLIST */}
-                {cards.map(elm => {
-                    return (
-                        <Col md={{ span: 4 }} key={elm._id}>
-                            <CardsComponents {...elm} />
-                        </Col>
-                    )
-                })}
+                <SubjectList />
             </Row>
             {/* <Row>
                 <CardList />

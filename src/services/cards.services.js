@@ -4,7 +4,6 @@ class CardsService {
     constructor() {
         this.api = axios.create({
             baseURL: `${process.env.REACT_APP_API_URL}/cards`
-
         })
     }
 
@@ -20,9 +19,20 @@ class CardsService {
         return this.api.get(`/${subject}`)
     }
 
+<<<<<<< HEAD
     editCards(cardID, data) {
         return this.api.put(`/${cardID}`, data)
     }
+=======
+    getCardsById(id) {
+        return this.api.get(`/${id}`)
+    }
+
+    editCards(id, cardData) {
+        return this.api.put(`/${id}/edit`, cardData)
+    }
+
+>>>>>>> cristian
 }
 
 

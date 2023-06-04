@@ -27,7 +27,10 @@ const CardMainContent = ({ cardInfoContent }) => {
     return (
         <Container>
             <CardResume field={'main_content'} content={mainContent} setContent={setMainContent} cardID={cardID} />
+<<<<<<< HEAD
 
+=======
+>>>>>>> cristian
             <hr />
             <CardResume field={'resume1'} content={resume1} setContent={setResume1} cardID={cardID} />
 
