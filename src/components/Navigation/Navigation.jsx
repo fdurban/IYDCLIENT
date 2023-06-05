@@ -19,7 +19,7 @@ const Navigation = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link as="span">
-                            <Link to="/cards">Galery</Link>
+                            <Link to="/getAllUsers">Users</Link>
                         </Nav.Link>
                         {
                             user

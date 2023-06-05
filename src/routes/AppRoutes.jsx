@@ -5,7 +5,6 @@ import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import SignupPage from '../pages/SignupPage/SignupPage'
 import PrivateRoute from './PrivateRoutes'
 import HomePage from '../pages/HomePage/HomePage'
-import NewCardPage from '../pages/CardFormPage/CardFormPage'
 import CardDetailsPage from '../pages/CardsDetailsPage/CardsDetailsPage'
 import UserListPage from '../pages/UserListPage/UserListPage'
 // import CardDetailsPAge from '../pages/CardsDetailsPage/CardsDetailsPage'
@@ -20,7 +19,7 @@ const AppRoutes = () => {
             <Route path='/:subject' element={<UserCardsListPage />} />
             <Route path='/details/:id' element={<CardDetailsPage />} />
             <Route path='/categories' element={<h1>Cards-tegories</h1>} />
-            <Route path='/create' element={<NewCardPage />} />
+            <Route path='/create' />
             <Route path='/getallusers' element={<UserListPage />} />
             <Route path='/profile' element={<PrivateRoute />}>
                 {/* TODO: REVISAR TÉCNICA DE PROTECCION DE RUTAS POR GRUSPO */}

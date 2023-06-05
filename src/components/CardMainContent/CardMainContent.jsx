@@ -6,6 +6,8 @@ import CardResume from "../CardResume/CardResume"
 const CardMainContent = ({ cardInfoContent }) => {
 
     const cardID = cardInfoContent._id
+
+    console.log(cardInfoContent)
     const [mainContent, setMainContent] = useState(cardInfoContent.main_content)
     const [resume1, setResume1] = useState(cardInfoContent.resume1)
     const [resume2, setResume2] = useState(cardInfoContent.resume2)
@@ -27,10 +29,7 @@ const CardMainContent = ({ cardInfoContent }) => {
     return (
         <Container>
             <CardResume field={'main_content'} content={mainContent} setContent={setMainContent} cardID={cardID} />
-<<<<<<< HEAD
 
-=======
->>>>>>> cristian
             <hr />
             <CardResume field={'resume1'} content={resume1} setContent={setResume1} cardID={cardID} />
 
@@ -47,3 +46,4 @@ const CardMainContent = ({ cardInfoContent }) => {
 }
 
 export default CardMainContent
+
