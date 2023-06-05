@@ -37,7 +37,10 @@ const CardsListPage = () => {
 
     return (
         <Container>
-            <h1>Hola soy CardsListPage</h1>
+            <h1>Hola soy UserCardsListPage</h1>
+            <div className="d-grid mt-3">
+                <Button variant="dark" type="submit">Create Card</Button>
+            </div>
             <hr />
             <Row>
                 {cards.map(elm => {

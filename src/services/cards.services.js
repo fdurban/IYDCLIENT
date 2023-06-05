@@ -19,23 +19,18 @@ class CardsService {
         return this.api.get(`/${subject}`)
     }
 
-<<<<<<< HEAD
-    editCards(cardID, data) {
-        return this.api.put(`/${cardID}`, data)
-    }
-=======
     getCardsById(id) {
-        return this.api.get(`/${id}`)
+        return this.api.get(`details/${id}`)
     }
 
-    editCards(id, cardData) {
-        return this.api.put(`/${id}/edit`, cardData)
+    editCards(cardID, cardData) {
+        return this.api.put(`/${cardID}/edit`, cardData)
+    }
+    createCard(cardData) {
+        return this.api.post(`/save`, cardData)
     }
 
->>>>>>> cristian
 }
-
-
 
 const cardsService = new CardsService()
 

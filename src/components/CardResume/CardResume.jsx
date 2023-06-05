@@ -11,6 +11,7 @@ const CardResume = ({ content, setContent, field, cardID }) => {
     }
 
     const updateContentInServer = (field, value) => {
+
         cardsService
             .editCards(cardID, {
                 [field]: value
@@ -53,8 +54,6 @@ const CardResume = ({ content, setContent, field, cardID }) => {
     )
 }
 
-<<<<<<< HEAD
 export default CardResume
-=======
-export default CardResume
->>>>>>> cristian
+
+
