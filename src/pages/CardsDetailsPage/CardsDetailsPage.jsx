@@ -5,7 +5,6 @@ import { AuthContext } from './../../contexts/auth.context'
 import CardMainContent from "../../components/CardMainContent/CardMainContent"
 import { useParams } from "react-router-dom"
 
-
 const CardDetailsPage = () => {
 
     const { id } = useParams()

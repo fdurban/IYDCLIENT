@@ -1,14 +1,14 @@
 import SubjectList from "../../components/SubjectList/SubjectList"
-import CardList from '../../components/CardList/CardList'
 import { AuthContext } from './../../contexts/auth.context'
 import { useContext } from "react"
-import { Container, Row, Col, Card, Button } from "react-bootstrap"
+import { Container, Row } from "react-bootstrap"
 
 
 
 const ProfilePage = () => {
 
     // TODO: HACER LLAMADA EN MONTAJE A LA API PARA TRAER INFO DEL USER, NO EL CONTEXTO
+    //(la hemos traido en el componente)
     const { user } = useContext(AuthContext)
 
     return (
@@ -18,9 +18,6 @@ const ProfilePage = () => {
             <Row>
                 <SubjectList />
             </Row>
-            {/* <Row>
-                <CardList />
-            </Row> */}
         </Container>
     )
 }
