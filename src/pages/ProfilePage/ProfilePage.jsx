@@ -1,26 +1,34 @@
 import SubjectList from "../../components/SubjectList/SubjectList"
-import CardList from '../../components/CardList/CardList'
-import { AuthContext } from './../../contexts/auth.context'
-import { useContext } from "react"
-import { Container, Row, Col, Card, Button } from "react-bootstrap"
+import { useEffect, useState } from "react"
+import { Container, Row } from "react-bootstrap"
+import userService from "../../services/user.services"
+import { useParams } from "react-router-dom"
+import useGetSessionData from "../../utils/get-session-data"
 
 
 
 const ProfilePage = () => {
 
-    // TODO: HACER LLAMADA EN MONTAJE A LA API PARA TRAER INFO DEL USER, NO EL CONTEXTO
-    const { user } = useContext(AuthContext)
+    const [userData, setUserData] = useState({})
+    console.log("user data", userData)
+
+    const user = useGetSessionData()
+    console.log(user._id)
+
+    useEffect(() => {
+        userService
+            .getUsersById(user?._id)
+            .then(({ data }) => setUserData(data))
+            .catch(err => console.log(err))
+    }, [])
 
     return (
         <Container>
-            <h1>Hello, <strong>{user.username}</strong>!</h1>
+            <h1>Hello, <strong>{userData.username}</strong>!</h1>
             <hr />
             <Row>
                 <SubjectList />
             </Row>
-            {/* <Row>
-                <CardList />
-            </Row> */}
         </Container>
     )
 }

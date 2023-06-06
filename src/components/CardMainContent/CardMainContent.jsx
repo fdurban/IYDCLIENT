@@ -7,7 +7,6 @@ const CardMainContent = ({ cardInfoContent }) => {
 
     const cardID = cardInfoContent._id
 
-    console.log(cardInfoContent)
     const [mainContent, setMainContent] = useState(cardInfoContent.main_content)
     const [resume1, setResume1] = useState(cardInfoContent.resume1)
     const [resume2, setResume2] = useState(cardInfoContent.resume2)
@@ -28,19 +27,19 @@ const CardMainContent = ({ cardInfoContent }) => {
 
     return (
         <Container>
-            <CardResume field={'main_content'} content={mainContent} setContent={setMainContent} cardID={cardID} />
+            <CardResume field={'main_content'} content={mainContent} setContent={setMainContent} cardID={cardID} owner={cardInfoContent.owner} />
 
-            <hr />
-            <CardResume field={'resume1'} content={resume1} setContent={setResume1} cardID={cardID} />
+            <hr style={{ width: '80rem' }} />
+            <CardResume field={'resume1'} content={resume1} setContent={setResume1} cardID={cardID} owner={cardInfoContent.owner} />
 
-            <hr />
-            <CardResume field={'resume2'} content={resume2} setContent={setResume2} cardID={cardID} />
+            <hr style={{ width: '80rem' }} />
+            <CardResume field={'resume2'} content={resume2} setContent={setResume2} cardID={cardID} owner={cardInfoContent.owner} />
 
-            <hr />
-            <CardResume field={'resume3'} content={resume3} setContent={setResume3} cardID={cardID} />
+            <hr style={{ width: '80rem' }} />
+            <CardResume field={'resume3'} content={resume3} setContent={setResume3} cardID={cardID} owner={cardInfoContent.owner} />
 
-            <hr />
-            <CardResume field={'resume4'} content={resume4} setContent={setResume4} cardID={cardID} />
+            <hr style={{ width: '80rem' }} />
+            <CardResume field={'resume4'} content={resume4} setContent={setResume4} cardID={cardID} owner={cardInfoContent.owner} />
         </Container >
     )
 }
