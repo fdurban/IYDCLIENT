@@ -21,7 +21,6 @@ const CardsListPage = () => {
         loadCards()
     }, [user])
 
-
     const loadCards = () => {
         cardsService
             .getCardsByOwner(user_id)
