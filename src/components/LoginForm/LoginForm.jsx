@@ -38,13 +38,10 @@ const LoginForm = () => {
             .catch(err => console.log(err))
     }
 
-
     const { password, email } = loginData
 
     return (
-
         <Form onSubmit={handleSubmit}>
-
 
             <Form.Group className="mb-3" controlId="email">
                 <Form.Label>Email</Form.Label>

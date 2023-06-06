@@ -21,6 +21,9 @@ const ProfilePage = () => {
             .then(({ data }) => setUserData(data))
             .catch(err => console.log(err))
     }, [])
+    // TODO: HACER LLAMADA EN MONTAJE A LA API PARA TRAER INFO DEL USER, NO EL CONTEXTO
+    //(la hemos traido en el componente)
+    // const { user } = useContext(AuthContext)
 
     return (
         <Container>
