@@ -4,7 +4,7 @@ import cardsService from "../../services/cards.services"
 import CardsComponents from "../../components/Card/CardComponent"
 import { AuthContext } from "../../contexts/auth.context"
 import { useParams } from "react-router-dom"
-
+import userService from "../../services/user.services"
 
 const CardsListPage = () => {
 
@@ -35,12 +35,22 @@ const CardsListPage = () => {
             .catch(err => console.log(err))
     }
 
+
+
+    useEffect(() => {
+        userService
+            .getUsersById(_id)
+            .then(({ data }) => {
+                setFavoriteCard(data.cards);
+            })
+            .catch((err) => console.log(err));
+    }, [_id]);
+
+
+
     return (
         <Container>
-            <h1>Hola soy UserCardsListPage</h1>
-            <div className="d-grid mt-3">
-                <Button variant="dark" type="submit">Create Card</Button>
-            </div>
+            <h1>Hola soy CardsListPage</h1>
             <hr />
             <Row>
                 {cards.map(elm => {

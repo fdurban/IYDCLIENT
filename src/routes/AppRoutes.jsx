@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import UserCardsListPage from '../pages/UserCardsListPage/UserCardsListPage'
-import LoginPage from '../pages/LoginPage/LoginPage'
+import LoginPage from '../pages/LoginPage/loginPage'
 import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import SignupPage from '../pages/SignupPage/SignupPage'
 import PrivateRoute from './PrivateRoutes'
