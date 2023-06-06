@@ -2,22 +2,17 @@ import SubjectList from "../../components/SubjectList/SubjectList"
 import { useEffect, useState } from "react"
 import { Container, Row } from "react-bootstrap"
 import userService from "../../services/user.services"
-import { useParams } from "react-router-dom"
-import useGetSessionData from "../../utils/get-session-data"
-
-
+import getSessionData from "../../utils/get-session-data"
 
 const ProfilePage = () => {
 
     const [userData, setUserData] = useState({})
-    console.log("user data", userData)
 
-    const user = useGetSessionData()
-    console.log(user._id)
+    const user = getSessionData()
 
     useEffect(() => {
         userService
-            .getUsersById(user?._id)
+            .getUserById(user?._id)
             .then(({ data }) => setUserData(data))
             .catch(err => console.log(err))
     }, [])

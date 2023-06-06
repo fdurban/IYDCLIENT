@@ -16,9 +16,7 @@ const CardsComponents = ({ showFullInfo, cardInfo }) => {
                 <Card.Body>
                     <Card.Title>{cardInfo.title}</Card.Title>
                     <Card.Title>{cardInfo.subject}</Card.Title>
-                    {isOwner ? (
-                        <Button variant="primary">Edit title</Button>
-                    ) : null}
+                    {isOwner && <Button variant="primary">Edit title</Button>}
                     <Button variant="primary"><Link to={`/details/${cardInfo._id}`}>Go to resume</Link></Button>
                     <p>By {isOwner}</p>
                 </Card.Body>

@@ -25,6 +25,7 @@ const UserListPage = () => {
             <h1>Hola soy UserListPage</h1>
             <hr />
             <Row>
+                {/* TODO: DESACOPLAR USERSLIST */}
                 {users.map(elm => {
                     return (
                         <UserComponent UserInfo={elm} key={elm._id} />

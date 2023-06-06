@@ -1,16 +1,12 @@
 import { useState, useEffect, useContext } from "react"
 import { Button, Card } from "react-bootstrap"
 import cardsService from "../../services/cards.services"
-import { useParams } from "react-router-dom"
 import { AuthContext } from "../../contexts/auth.context"
-import userService from "../../services/user.services"
 
 const CardResume = ({ content, setContent, field, cardID, owner }) => {
 
     const [isEditing, setIsEditing] = useState(false)
     const { user } = useContext(AuthContext)
-
-    const [cards, setCards] = useState([])
 
     const handleInputChange = (e) => {
         setContent(e.target.value)
@@ -19,29 +15,25 @@ const CardResume = ({ content, setContent, field, cardID, owner }) => {
     const updateContentInServer = (field, value) => {
 
         cardsService
-            .editCards(cardID, {
-                [field]: value
-            })
+            .editCards(cardID, { [field]: value })
+            .catch(err => console.log(err))
     }
 
     if (!content) {
         return <h1> loading </h1>
     }
 
-    console.log(owner, user._id)
 
     if (owner === user._id) {
-
-        console.log(owner)
 
         return (
             <>
                 {
                     !isEditing
                         ?
+                        // TODO: QUITAR ANCHOS EN LINEA DE LAS CARDS
                         <Card style={{ width: '80rem' }} >
                             <Card.Body>
-                                {owner === user?._id}
                                 <Card.Text>{content}</Card.Text>
                                 <Button variant="primary">Like</Button>
                                 <Button variant="warning" onClick={() => setIsEditing(!isEditing)}>Edit</Button>

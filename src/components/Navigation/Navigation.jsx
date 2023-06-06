@@ -9,8 +9,6 @@ const Navigation = () => {
     const { theme, SwitchTheme } = useContext(ThemeContext)
     const { user, logout } = useContext(AuthContext)
 
-    const variant = theme === "ligth" ? 'dark' : 'ligth'
-
     return (
         <Navbar bg="dark" variant="dark" expand="lg" className='mb-5'>
             <Container>

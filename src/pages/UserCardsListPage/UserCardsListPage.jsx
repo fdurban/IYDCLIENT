@@ -10,13 +10,13 @@ import userService from "../../services/user.services"
 
 const CardsListPage = () => {
 
-
     const { user } = useContext(AuthContext)
 
     const { subject, user_id } = useParams()
 
     const [cards, setCards] = useState([])
     const [showModal, setShowModal] = useState(false)
+    const [deleteAction, setDeleteAction] = useState([])
 
     useEffect(() => {
         loadCards()
@@ -30,13 +30,17 @@ const CardsListPage = () => {
                 if (subject) {
                     const filteredCards = data.filter((card) => card.subject === subject)
                     setCards(filteredCards)
-                    console.log(filteredCards)
                 }
             })
             .catch(err => console.log(err))
     }
 
-
+    // const deleteCards = () => {
+    //     cardsService
+    //         .findByIdAndDelete(id)
+    //         .then()
+    //         .catch(err => console.log(err))
+    // }
 
     // useEffect(() => {
     //     userService
@@ -61,10 +65,14 @@ const CardsListPage = () => {
                             <Button variant="dark" type="submit" onClick={() => setShowModal(true)}>Create Card</Button>
                         </div>
                         <hr />
+                        <div className="d-grid mt-3">
+                            <Button variant="warning" type="submit" >Delete Card</Button>
+                        </div>
                     </>
                 }
 
                 <Row>
+                    {/* TODO: DESACOPLAR EN CARDSLIST */}
                     {cards.map(elm => {
                         const isOwner = elm.owner === user?._id
                         if (isOwner) {
