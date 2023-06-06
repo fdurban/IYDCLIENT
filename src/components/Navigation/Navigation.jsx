@@ -26,9 +26,9 @@ const Navigation = () => {
                                 ?
                                 <>
                                     &&
-                                    <Nav.Link as="span" onClick={logout}>Log off</Nav.Link>
+                                    <Nav.Link as="span" onClick={logout}>Log out</Nav.Link>
                                     <Nav.Link as="span">
-                                        <Link to="/profile">Hello {user.username}</Link>
+                                        <Link to={`/profile/user/${user._id}`}>Hello {user.username}</Link>
                                     </Nav.Link>
                                 </>
                                 :

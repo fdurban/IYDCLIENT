@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 const CardsComponents = ({ showFullInfo, cardInfo }) => {
 
     const { user } = useContext(AuthContext)
-    const isOwner = cardInfo.owner == user._id
+    const isOwner = cardInfo.owner == user?._id
 
 
     return (

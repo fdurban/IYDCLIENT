@@ -5,6 +5,17 @@ class CardsService {
         this.api = axios.create({
             baseURL: `${process.env.REACT_APP_API_URL}/cards`
         })
+
+        this.api.interceptors.request.use((config) => {
+
+            const storedToken = localStorage.getItem("authToken");
+
+            if (storedToken) {
+                config.headers = { Authorization: `Bearer ${storedToken}` }
+            }
+
+            return config
+        })
     }
 
     getCards() {
@@ -12,14 +23,14 @@ class CardsService {
     }
 
     getCardsByOwner(owner) {
-        return this.api.get(`/${owner}`)
+        return this.api.get(`/owner/${owner}`)
     }
 
     getCardsBySubject(subject) {
-        return this.api.get(`/${subject}`)
+        return this.api.get(`/subject/${subject}`)
     }
 
-    getCardsById(id) {
+    getCardById(id) {
         return this.api.get(`details/${id}`)
     }
 
