@@ -9,18 +9,17 @@ import { useParams } from "react-router-dom"
 const CardDetailsPage = () => {
 
     const { id } = useParams()
-    const [cards, setCards] = useState([])
+    const [card, setCard] = useState([])
 
     useEffect(() => {
-
-        loadCardsById()
+        loadCardById()
     }, [])
 
-    const loadCardsById = () => {
+    const loadCardById = () => {
 
         cardsService
-            .getCardsById(id)
-            .then(({ data }) => setCards(data))
+            .getCardById(id)
+            .then(({ data }) => setCard(data))
             .catch(err => console.log(err))
     }
 
@@ -29,8 +28,7 @@ const CardDetailsPage = () => {
         <Container>
             <Col md={{ span: 4 }}>
                 <h1>Card details</h1>
-                <hr style={{ width: '40rem' }} />
-                <CardMainContent cardInfoContent={cards} />
+                <CardMainContent cardInfoContent={card} />
             </Col>
         </Container>
     )
