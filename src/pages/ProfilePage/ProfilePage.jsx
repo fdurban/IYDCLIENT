@@ -2,13 +2,13 @@ import SubjectList from "../../components/SubjectList/SubjectList"
 import { useEffect, useState } from "react"
 import { Container, Row } from "react-bootstrap"
 import userService from "../../services/user.services"
-import getSessionData from "../../utils/get-session-data"
+import usegetSessionData from "../../utils/get-session-data"
 
 const ProfilePage = () => {
 
     const [userData, setUserData] = useState({})
 
-    const user = getSessionData()
+    const user = usegetSessionData()
 
     useEffect(() => {
         userService

@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../contexts/auth.context';
 import userService from '../services/user.services';
 
-function getSessionData() {
+function usegetSessionData() {
     const { user } = useContext(AuthContext)
     const [sessionData, setSessionData] = useState({})
 
@@ -16,4 +16,4 @@ function getSessionData() {
     return sessionData && sessionData
 }
 
-export default getSessionData
+export default usegetSessionData
