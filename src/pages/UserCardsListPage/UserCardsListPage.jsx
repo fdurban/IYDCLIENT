@@ -6,6 +6,7 @@ import { AuthContext } from "../../contexts/auth.context"
 import { useParams } from "react-router-dom"
 import CardForm from "../../components/CardsForm/CardForm"
 
+import userService from "../../services/user.services"
 
 const CardsListPage = () => {
 
@@ -33,6 +34,19 @@ const CardsListPage = () => {
             })
             .catch(err => console.log(err))
     }
+
+
+
+    // useEffect(() => {
+    //     userService
+    //         .getUsersById(_id)
+    //         .then(({ data }) => {
+    //             setFavoriteCard(data.cards);
+    //         })
+    //         .catch((err) => console.log(err));
+    // }, [_id]);
+
+
 
     return (
         <>
