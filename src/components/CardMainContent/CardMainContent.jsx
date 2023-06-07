@@ -51,4 +51,3 @@ const CardMainContent = ({ cardInfoContent }) => {
 }
 
 export default CardMainContent
-

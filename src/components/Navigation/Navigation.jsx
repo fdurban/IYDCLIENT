@@ -11,7 +11,7 @@ const Navigation = () => {
     const { user, logout } = useContext(AuthContext)
 
     return (
-        <Navbar bg="dark" variant="dark" expand="lg" className='mb-5'>
+        <Navbar sticky='top' bg="dark" variant="dark" expand="lg" className='mb-5'>
             <Container>
                 <Navbar.Brand href="/">IYD</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

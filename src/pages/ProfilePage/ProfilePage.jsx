@@ -3,22 +3,16 @@ import { useContext, useEffect, useState } from "react"
 import { Container, Row } from "react-bootstrap"
 import userService from "../../services/user.services"
 import useGetSessionData from "../../utils/get-session-data"
-<<<<<<< HEAD
-=======
 import "./ProfilePage.css"
 import { AuthContext } from "../../contexts/auth.context"
 
->>>>>>> db0a8422fa067d16d9b42f452e36aa2af9530366
 
 const ProfilePage = () => {
 
     const [userData, setUserData] = useState({})
 
-<<<<<<< HEAD
-    const user = useGetSessionData()
-=======
+    // const user = useGetSessionData()
     const { user } = useContext(AuthContext)
->>>>>>> db0a8422fa067d16d9b42f452e36aa2af9530366
 
     useEffect(() => {
         userService
