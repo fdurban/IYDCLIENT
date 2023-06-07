@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect, useContext } from "react"
 import { AuthContext } from "../../contexts/auth.context"
 import { ThemeContext } from "../../contexts/theme.contex"
+import "./Navigation.css"
 
 const Navigation = () => {
 
@@ -27,6 +28,7 @@ const Navigation = () => {
                                     <Nav.Link as="span" onClick={logout}>Log out</Nav.Link>
                                     <Nav.Link as="span">
                                         <Link to={`/profile/user/${user._id}`}>Hello {user.username}</Link>
+                                        {/* <img src={user?.avatar} alt="avatar" /> */}
                                     </Nav.Link>
                                 </>
                                 :

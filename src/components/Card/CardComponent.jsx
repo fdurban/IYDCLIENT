@@ -7,7 +7,7 @@ const CardsComponents = ({ cardInfo, deleteCardByID, addFavoriteCard }) => {
 
     const { user } = useContext(AuthContext)
     const isOwner = cardInfo.owner == user?._id
-    const { _id } = cardInfo
+
 
     return (
         <>

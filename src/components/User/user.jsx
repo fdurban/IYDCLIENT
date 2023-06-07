@@ -1,17 +1,17 @@
 import { Container, Card, Col } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
-const UserComponent = ({ UserInfo }) => {
+const UserComponent = ({ _id, username, avatar }) => {
 
     return (
         <Col md={{ span: 4 }} >
-            <Link to={`/users/${UserInfo._id}`}>
+            <Link to={`/users/${_id}`}>
                 <Card>
                     <Card.Body>
                         <Card.Text>
-                            {UserInfo.username}
+                            {username}
                         </Card.Text>
-                        <Card.Img src={UserInfo.avatar} />
+                        <Card.Img src={avatar} />
                     </Card.Body>
                 </Card>
             </Link>

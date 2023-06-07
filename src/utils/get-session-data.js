@@ -3,6 +3,7 @@ import { AuthContext } from '../contexts/auth.context';
 import userService from '../services/user.services';
 
 function useGetSessionData() {
+
     const { user } = useContext(AuthContext)
     const [sessionData, setSessionData] = useState({})
 
