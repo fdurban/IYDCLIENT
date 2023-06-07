@@ -7,6 +7,7 @@ import { AuthContext } from "../../contexts/auth.context"
 import { useParams } from "react-router-dom"
 import CardForm from "../../components/CardsForm/CardForm"
 import CardResume from "../../components/CardResume/CardResume"
+import FavoriteCardsComponents from "../../components/FavoriteCardComponent.jsx/favoriteCardComponent"
 
 const CardsListPage = () => {
 
@@ -15,6 +16,7 @@ const CardsListPage = () => {
     const { subject, user_id } = useParams()
 
     const [cards, setCards] = useState([])
+    const [favoriteCards, setFavoriteCards] = useState([])
     const [showModal, setShowModal] = useState(false)
 
 
@@ -32,12 +34,16 @@ const CardsListPage = () => {
                 }
             })
             .catch(err => console.log(err))
+
+        userService.getFavoriteCards(user_id).then(({ data }) => {
+            setFavoriteCards(data)
+        })
     }
 
     const deleteCardByID = (_id) => {
         cardsService
             .deleteCard(_id)
-            .then(({ data }) => loadCards())
+            .then(() => loadCards())
             .catch(err => console.log(err))
 
     }
@@ -45,7 +51,7 @@ const CardsListPage = () => {
     const addFavoriteCard = (_id) => {
         userService
             .addFavoriteCard(_id)
-            .then(({ data }) => loadCards())
+            .then(() => loadCards())
             .catch(err => console.log(err))
     }
 
@@ -86,7 +92,7 @@ const CardsListPage = () => {
                         } else {
                             return (
                                 <Col md={{ span: 4 }} key={elm._id}>
-                                    <CardsComponents cardInfo={elm} />
+                                    <CardsComponents cardInfo={elm} addFavoriteCard={addFavoriteCard} />
 
                                 </Col>
                             )
@@ -96,9 +102,10 @@ const CardsListPage = () => {
                 </Row>
                 <h1>Here are your liked cards!</h1>
                 <Row>
-                    {cards.map(elm => (
+                    {favoriteCards.map(elm => (
                         <Col md={{ span: 4 }} key={elm._id}>
-                            <CardResume addFavoriteCard={() => addFavoriteCard(elm._id)} />
+                            {/* TODO ESTE ES EL PADRE */}
+                            <FavoriteCardsComponents addFavoriteCard={() => addFavoriteCard(elm._id)} cardInfo={elm} />
                         </Col>
                     ))}
                 </Row>

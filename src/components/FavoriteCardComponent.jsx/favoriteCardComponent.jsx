@@ -3,7 +3,7 @@ import { AuthContext } from './../../contexts/auth.context'
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 
-const CardsComponents = ({ cardInfo, deleteCardByID, addFavoriteCard }) => {
+const FavoriteCardsComponents = ({ cardInfo, deleteCardByID, addFavoriteCard }) => {
 
     const { user } = useContext(AuthContext)
     const isOwner = cardInfo.owner == user?._id
@@ -17,7 +17,6 @@ const CardsComponents = ({ cardInfo, deleteCardByID, addFavoriteCard }) => {
                     <Card.Title>{cardInfo.subject}</Card.Title>
                     <Button variant="primary"><Link to={`/details/${cardInfo._id}`}>Go to resume</Link></Button>
                     {isOwner && <Button variant="danger" onClick={() => deleteCardByID(cardInfo._id)}>Delete Card</Button>}
-                    {!isOwner && <Button variant="primary" onClick={() => addFavoriteCard(cardInfo._id)}>Like</Button>}
                     <p>By {user?.username}</p>
                 </Card.Body>
             </Card>
@@ -25,7 +24,4 @@ const CardsComponents = ({ cardInfo, deleteCardByID, addFavoriteCard }) => {
     )
 }
 
-export default CardsComponents
-
-
-
+export default FavoriteCardsComponents

@@ -33,6 +33,10 @@ class UserService {
     removeFavoriteCard(id) {
         return this.api.put(`/${id}/favoriteCard/remove`)
     }
+
+    getFavoriteCards(id) {
+        return this.api.get(`/${id}/favoriteCard/get`)
+    }
 }
 
 const userService = new UserService()
