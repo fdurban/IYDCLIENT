@@ -40,6 +40,9 @@ class CardsService {
     createCard(cardData) {
         return this.api.post(`/save`, cardData)
     }
+    deleteCard(id) {
+        return this.api.delete(`/delete/${id}`)
+    }
 
 }
 

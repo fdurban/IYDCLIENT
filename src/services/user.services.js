@@ -25,6 +25,14 @@ class UserService {
     getUserById(id) {
         return this.api.get(`/${id}`)
     }
+
+    addFavoriteCard(id) {
+        return this.api.put(`/${id}/favoriteCard/add`)
+    }
+
+    removeFavoriteCard(id) {
+        return this.api.put(`/${id}/favoriteCard/remove`)
+    }
 }
 
 const userService = new UserService()

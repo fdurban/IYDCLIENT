@@ -3,7 +3,7 @@ import { Button, Card } from "react-bootstrap"
 import cardsService from "../../services/cards.services"
 import { AuthContext } from "../../contexts/auth.context"
 
-const CardResume = ({ content, setContent, field, cardID, owner }) => {
+const CardResume = ({ content, setContent, field, cardID, owner, addFavoriteCard }) => {
 
     const [isEditing, setIsEditing] = useState(false)
     const { user } = useContext(AuthContext)
@@ -35,7 +35,6 @@ const CardResume = ({ content, setContent, field, cardID, owner }) => {
                         <Card style={{ width: '80rem' }} >
                             <Card.Body>
                                 <Card.Text>{content}</Card.Text>
-                                <Button variant="primary">Like</Button>
                                 <Button variant="warning" onClick={() => setIsEditing(!isEditing)}>Edit</Button>
                             </Card.Body>
                         </Card>
@@ -63,7 +62,6 @@ const CardResume = ({ content, setContent, field, cardID, owner }) => {
                 <Card style={{ width: '80rem' }} >
                     <Card.Body>
                         <Card.Text>{content}</Card.Text>
-                        <Button variant="primary">Like</Button>
                     </Card.Body>
                 </Card>
             </>

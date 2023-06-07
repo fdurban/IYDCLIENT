@@ -33,7 +33,7 @@ const LoginForm = () => {
             .then(({ data }) => {
                 storeToken(data.authToken)
                 authenticateUser()
-                navigate('/profile')
+                navigate('/profile/user/')
             })
             .catch(err => console.log(err))
     }

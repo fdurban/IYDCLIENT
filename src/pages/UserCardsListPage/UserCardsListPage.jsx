@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react"
 import { Container, Row, Col, Card, Button, Modal } from "react-bootstrap"
 import cardsService from "../../services/cards.services"
+import userService from "../../services/user.services"
 import CardsComponents from "../../components/Card/CardComponent"
 import { AuthContext } from "../../contexts/auth.context"
 import { useParams } from "react-router-dom"
 import CardForm from "../../components/CardsForm/CardForm"
-
-import userService from "../../services/user.services"
+import CardResume from "../../components/CardResume/CardResume"
 
 const CardsListPage = () => {
 
@@ -16,7 +16,7 @@ const CardsListPage = () => {
 
     const [cards, setCards] = useState([])
     const [showModal, setShowModal] = useState(false)
-    const [deleteAction, setDeleteAction] = useState([])
+
 
     useEffect(() => {
         loadCards()
@@ -34,23 +34,27 @@ const CardsListPage = () => {
             .catch(err => console.log(err))
     }
 
-    // const deleteCards = () => {
-    //     cardsService
-    //         .findByIdAndDelete(id)
-    //         .then()
-    //         .catch(err => console.log(err))
-    // }
+    const deleteCardByID = (_id) => {
+        cardsService
+            .deleteCard(_id)
+            .then(({ data }) => loadCards())
+            .catch(err => console.log(err))
 
-    // useEffect(() => {
-    //     userService
-    //         .getUsersById(_id)
-    //         .then(({ data }) => {
-    //             setFavoriteCard(data.cards);
-    //         })
-    //         .catch((err) => console.log(err));
-    // }, [_id]);
+    }
 
+    const addFavoriteCard = (_id) => {
+        userService
+            .addFavoriteCard(_id)
+            .then(({ data }) => loadCards())
+            .catch(err => console.log(err))
+    }
 
+    const removeFavoriteCard = (_id) => {
+        userService
+            .removeFavoriteCard(_id)
+            .then(({ data }) => loadCards())
+            .catch(err => console.log(err))
+    }
 
     return (
         <>
@@ -64,9 +68,6 @@ const CardsListPage = () => {
                             <Button variant="dark" type="submit" onClick={() => setShowModal(true)}>Create Card</Button>
                         </div>
                         <hr />
-                        <div className="d-grid mt-3">
-                            <Button variant="warning" type="submit" >Delete Card</Button>
-                        </div>
                     </>
                 }
 
@@ -78,7 +79,7 @@ const CardsListPage = () => {
                             return (
                                 <>
                                     <Col md={{ span: 4 }} key={elm._id}>
-                                        <CardsComponents cardInfo={elm} subject={subject} user_id={user_id} />
+                                        <CardsComponents deleteCardByID={deleteCardByID} cardInfo={elm} subject={subject} user_id={user_id} />
                                     </Col>
                                 </>
                             )
@@ -86,11 +87,22 @@ const CardsListPage = () => {
                             return (
                                 <Col md={{ span: 4 }} key={elm._id}>
                                     <CardsComponents cardInfo={elm} />
+
                                 </Col>
                             )
+
                         }
                     })}
                 </Row>
+                <h1>Here are your liked cards!</h1>
+                <Row>
+                    {cards.map(elm => (
+                        <Col md={{ span: 4 }} key={elm._id}>
+                            <CardResume addFavoriteCard={() => addFavoriteCard(elm._id)} />
+                        </Col>
+                    ))}
+                </Row>
+
             </Container>
 
             <Modal show={showModal} onHide={() => setShowModal(false)} >
@@ -101,6 +113,7 @@ const CardsListPage = () => {
                     <CardForm user_id={user_id} subject={subject} closeModal={() => setShowModal(false)} updateList={loadCards} />
                 </Modal.Body>
             </Modal>
+
         </>
 
     )

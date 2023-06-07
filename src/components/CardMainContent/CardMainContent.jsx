@@ -27,21 +27,24 @@ const CardMainContent = ({ cardInfoContent }) => {
     }
 
     return (
-        <Container>
-            <CardResume field={'main_content'} content={mainContent} setContent={setMainContent} cardID={cardID} owner={cardInfoContent.owner} />
+        <>
+            <Container>
+                <CardResume field={'main_content'} content={mainContent} setContent={setMainContent} cardID={cardID} owner={cardInfoContent.owner} />
 
-            <hr style={{ width: '80rem' }} />
-            <CardResume field={'resume1'} content={resume1} setContent={setResume1} cardID={cardID} owner={cardInfoContent.owner} />
+                <hr style={{ width: '80rem' }} />
+                <CardResume field={'resume1'} content={resume1} setContent={setResume1} cardID={cardID} owner={cardInfoContent.owner} />
 
-            <hr style={{ width: '80rem' }} />
-            <CardResume field={'resume2'} content={resume2} setContent={setResume2} cardID={cardID} owner={cardInfoContent.owner} />
+                <hr style={{ width: '80rem' }} />
+                <CardResume field={'resume2'} content={resume2} setContent={setResume2} cardID={cardID} owner={cardInfoContent.owner} />
 
-            <hr style={{ width: '80rem' }} />
-            <CardResume field={'resume3'} content={resume3} setContent={setResume3} cardID={cardID} owner={cardInfoContent.owner} />
+                <hr style={{ width: '80rem' }} />
+                <CardResume field={'resume3'} content={resume3} setContent={setResume3} cardID={cardID} owner={cardInfoContent.owner} />
 
-            <hr style={{ width: '80rem' }} />
-            <CardResume field={'resume4'} content={resume4} setContent={setResume4} cardID={cardID} owner={cardInfoContent.owner} />
-        </Container >
+                <hr style={{ width: '80rem' }} />
+                <CardResume field={'resume4'} content={resume4} setContent={setResume4} cardID={cardID} owner={cardInfoContent.owner} />
+            </Container >
+            <Button type="danger">Like</Button>
+        </>
     )
 }
 

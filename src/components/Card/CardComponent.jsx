@@ -3,12 +3,11 @@ import { AuthContext } from './../../contexts/auth.context'
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 
-
-const CardsComponents = ({ showFullInfo, cardInfo }) => {
+const CardsComponents = ({ cardInfo, deleteCardByID, addFavoriteCard }) => {
 
     const { user } = useContext(AuthContext)
     const isOwner = cardInfo.owner == user?._id
-
+    const { _id } = cardInfo
 
     return (
         <>
@@ -16,9 +15,10 @@ const CardsComponents = ({ showFullInfo, cardInfo }) => {
                 <Card.Body>
                     <Card.Title>{cardInfo.title}</Card.Title>
                     <Card.Title>{cardInfo.subject}</Card.Title>
-                    {isOwner && <Button variant="primary">Edit title</Button>}
                     <Button variant="primary"><Link to={`/details/${cardInfo._id}`}>Go to resume</Link></Button>
-                    <p>By {isOwner}</p>
+                    {isOwner && <Button variant="danger" onClick={() => deleteCardByID(_id)}>Delete Card</Button>}
+                    {/* {!isOwner && <Button variant="primary" onClick={() => addFavoriteCard(_id)}>Like</Button>} */}
+                    <p>By {user?.username}</p>
                 </Card.Body>
             </Card>
         </>
