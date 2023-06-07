@@ -2,6 +2,8 @@ import { useState } from "react"
 import { Form, Button } from "react-bootstrap"
 import authService from './../../services/auth.services'
 import { useNavigate } from "react-router-dom"
+import uploadServices from "../../services/upload.services"
+
 
 const SignupForm = () => {
 
@@ -18,6 +20,19 @@ const SignupForm = () => {
     const handleInputChange = e => {
         const { value, name } = e.target
         setSignupData({ ...signupData, [name]: value })
+    }
+
+    const handleFileUpload = e => {
+
+        const formData = new FormData()
+        formData.append('imageData', e.target.files[0])
+
+        uploadServices
+            .uploadimage(formData)
+            .then(res => {
+                setSignupData({ ...signupData, avatar: res.data.cloudinary_url })
+            })
+            .catch(err => console.log(err))
     }
 
     const handleSubmit = e => {
@@ -53,18 +68,15 @@ const SignupForm = () => {
                 <Form.Control type="password" value={password} onChange={handleInputChange} name="password" />
             </Form.Group>
 
-
-            {/* <Form.Group className="mb-3" controlId="avatar">
-                <Form.Label>Avatar</Form.Label>
-                <Form.Control type="file" accept="image/*" value={avatar} onChange={handleAvatarUpload} />
-            </Form.Group> */}
-
+            <Form.Group className="mb-3" controlId="image">
+                <Form.Label>Avatar (URL)</Form.Label>
+                <Form.Control type="file" onChange={handleFileUpload} />
+            </Form.Group>
 
             <Form.Group className="mb-3" controlId="description">
                 <Form.Label>Description</Form.Label>
                 <Form.Control type="text" value={description} onChange={handleInputChange} name="description" style={{ height: '150px' }} />
             </Form.Group>
-
 
             <div className="d-grid">
                 <Button variant="dark" type="submit">Registrarme</Button>

@@ -28,7 +28,7 @@ const UserListPage = () => {
                 {/* TODO: DESACOPLAR USERSLIST */}
                 {users.map(elm => {
                     return (
-                        <UserComponent UserInfo={elm} key={elm._id} />
+                        <UserComponent {...elm} key={elm._id} />
                     )
                 })}
             </Row>
