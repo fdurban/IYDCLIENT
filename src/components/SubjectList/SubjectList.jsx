@@ -7,7 +7,6 @@ import { Link, useParams } from 'react-router-dom'
 const SubjectList = () => {
 
     const [cards, setCards] = useState([])
-
     const { user_id } = useParams()
 
     useEffect(() => {
