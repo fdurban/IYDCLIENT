@@ -2,17 +2,21 @@ import { useState, useEffect, useContext } from "react"
 import { Button, Card } from "react-bootstrap"
 import cardsService from "../../services/cards.services"
 import { AuthContext } from "../../contexts/auth.context"
-
+import './CardResume.css'
 const CardResume = ({ content, setContent, field, cardID, owner, addFavoriteCard }) => {
 
     {/* TODO ESTE ES EL HIJO */ }
-
-
+    const [isFlipped, setIsFlipped] = useState(false)
     const [isEditing, setIsEditing] = useState(false)
+
     const { user } = useContext(AuthContext)
 
     const handleInputChange = (e) => {
         setContent(e.target.value)
+    }
+
+    const handleCardClick = () => {
+        setIsFlipped(!isFlipped)
     }
 
     const updateContentInServer = (field, value) => {
@@ -35,7 +39,12 @@ const CardResume = ({ content, setContent, field, cardID, owner, addFavoriteCard
                     !isEditing
                         ?
                         // TODO: QUITAR ANCHOS EN LINEA DE LAS CARDS
-                        <Card style={{ width: '80rem' }} >
+
+
+                        <Card
+                            className={`flip-card`}
+                            style={{ width: '80rem' }}
+                            onClick={handleCardClick}>
                             <Card.Body>
                                 <Card.Text>{content}</Card.Text>
                                 <Button variant="warning" onClick={() => setIsEditing(!isEditing)}>Edit</Button>
