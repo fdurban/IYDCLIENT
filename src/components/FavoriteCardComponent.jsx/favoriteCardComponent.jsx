@@ -3,7 +3,8 @@ import { AuthContext } from './../../contexts/auth.context'
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 
-const FavoriteCardsComponents = ({ cardInfo, deleteCardByID, addFavoriteCard }) => {
+const FavoriteCardsComponents = ({ cardInfo, deleteCardByID, subject }) => {
+
 
     const { user } = useContext(AuthContext)
     const isOwner = cardInfo.owner == user?._id

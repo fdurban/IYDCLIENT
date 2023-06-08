@@ -35,9 +35,15 @@ const CardsListPage = () => {
             })
             .catch(err => console.log(err))
 
-        userService.getFavoriteCards(user_id).then(({ data }) => {
-            setFavoriteCards(data)
-        })
+        userService
+            .getFavoriteCards(user_id)
+            .then(({ data }) => {
+                if (subject) {
+                    const filteredCards = data.filter((card) => card.subject === subject)
+                    setFavoriteCards(filteredCards)
+                }
+            })
+            .catch(err => console.log(err))
     }
 
     const deleteCardByID = (_id) => {
@@ -105,7 +111,7 @@ const CardsListPage = () => {
                     {favoriteCards.map(elm => (
                         <Col md={{ span: 4 }} key={elm._id}>
                             {/* TODO ESTE ES EL PADRE */}
-                            <FavoriteCardsComponents addFavoriteCard={() => addFavoriteCard(elm._id)} cardInfo={elm} />
+                            <FavoriteCardsComponents addFavoriteCard={() => addFavoriteCard(elm._id)} cardInfo={elm} subject={subject} user_id={user_id} />
                         </Col>
                     ))}
                 </Row>
