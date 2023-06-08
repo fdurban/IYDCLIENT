@@ -12,9 +12,9 @@ import FavoriteCardsComponents from "../../components/FavoriteCardComponent.jsx/
 const CardsListPage = () => {
 
     const { user } = useContext(AuthContext)
-
+    console.log(user._id)
     const { subject, user_id } = useParams()
-
+    console.log(user_id)
     const [cards, setCards] = useState([])
     const [favoriteCards, setFavoriteCards] = useState([])
     const [showModal, setShowModal] = useState(false)
@@ -54,9 +54,9 @@ const CardsListPage = () => {
 
     }
 
-    const addFavoriteCard = (_id) => {
+    const addFavoriteCard = (user_id, card_id) => {
         userService
-            .addFavoriteCard(_id)
+            .addFavoriteCard(user_id, card_id)
             .then(() => loadCards())
             .catch(err => console.log(err))
     }
@@ -106,12 +106,12 @@ const CardsListPage = () => {
                         }
                     })}
                 </Row>
-                <h1>Here are your liked cards!</h1>
+                <h1>Here are your favorite cards!</h1>
                 <Row>
                     {favoriteCards.map(elm => (
                         <Col md={{ span: 4 }} key={elm._id}>
-                            {/* TODO ESTE ES EL PADRE */}
-                            <FavoriteCardsComponents addFavoriteCard={() => addFavoriteCard(elm._id)} cardInfo={elm} subject={subject} user_id={user_id} />
+
+                            <FavoriteCardsComponents removeFavoriteCard={() => removeFavoriteCard(elm._id)} cardInfo={elm} subject={subject} user_id={user_id} />
                         </Col>
                     ))}
                 </Row>

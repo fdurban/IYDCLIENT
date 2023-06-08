@@ -8,7 +8,6 @@ import { useParams } from "react-router-dom"
 const CardDetailsPage = () => {
 
     const { id } = useParams()
-    console.log("id del abuelo", id)
     const [card, setCard] = useState([])
 
     useEffect(() => {

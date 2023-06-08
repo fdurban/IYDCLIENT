@@ -26,12 +26,12 @@ class UserService {
         return this.api.get(`/${id}`)
     }
 
-    addFavoriteCard(id) {
-        return this.api.put(`/${id}/favoriteCard/add`)
+    addFavoriteCard(user_id, card_id) {
+        return this.api.put(`/${user_id}/favoriteCard/add`, { cardID: card_id })
     }
 
-    removeFavoriteCard(id) {
-        return this.api.put(`/${id}/favoriteCard/remove`)
+    removeFavoriteCard(id, card_id) {
+        return this.api.put(`/${id}/favoriteCard/remove`, { cardID: card_id })
     }
 
     getFavoriteCards(id) {
