@@ -110,7 +110,6 @@ const CardsListPage = () => {
                 <Row>
                     {favoriteCards.map(elm => (
                         <Col md={{ span: 4 }} key={elm._id}>
-
                             <FavoriteCardsComponents removeFavoriteCard={() => removeFavoriteCard(elm._id)} cardInfo={elm} subject={subject} user_id={user_id} />
                         </Col>
                     ))}

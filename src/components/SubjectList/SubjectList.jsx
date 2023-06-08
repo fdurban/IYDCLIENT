@@ -3,15 +3,19 @@ import cardsService from '../../services/cards.services'
 import { Col } from 'react-bootstrap'
 import { useEffect, useState } from "react"
 import { Link, useParams } from 'react-router-dom'
+import userService from "../../services/user.services"
 
 const SubjectList = () => {
 
     const [cards, setCards] = useState([])
 
-    const { user_id, owner } = useParams()
+    const [userdata, setUserdata] = useState({})
+
+    const { user_id } = useParams()
 
     useEffect(() => {
         loadCardsBySubject()
+        loadUserData()
     }, [])
 
     const loadCardsBySubject = () => {
@@ -21,9 +25,17 @@ const SubjectList = () => {
             .catch(err => console.log(err))
     }
 
+    const loadUserData = () => {
+        userService
+            .getUserById(user_id)
+            .then(({ data }) => setUserdata(data))
+            .catch(err => console.log(err))
+    }
+
     return (
         <>
-            <Link to={`/subject/MATH/user/${user_id}/${owner}`}><strong>Matemati-cards</strong> (Matematics)</Link>
+            <p>Estas cartas pertenecen a <strong>{userdata.username}</strong></p>
+            <Link to={`/subject/MATH/user/${user_id}`}><strong>Matemati-cards</strong> (Matematics)</Link>
             <Link to={`/subject/ANATOMY/user/${user_id}`}><strong>Card-nathomy</strong> (Anathomy)</Link>
             <Link to={`/subject/BIOLOGY/user/${user_id}`}><strong>Biology</strong></Link>
             <Link to={`/subject/CHEMISTRY/user/${user_id}`}><strong>Chemistry</strong></Link>
@@ -36,7 +48,7 @@ const SubjectList = () => {
             <Link to={`/subject/OTHER/user/${user_id}`}><strong>Other</strong></Link>
             {cards.map(elm => (
                 <Col md={{ span: 4 }} key={elm.subject}>
-                    <CardsComponents {...elm} />
+                    <CardsComponents {...elm} userdata={userdata} />
                 </Col>
             ))}
         </>

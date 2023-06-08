@@ -10,6 +10,7 @@ const CardsComponents = ({ cardInfo, deleteCardByID, addFavoriteCard }) => {
     const isOwner = cardInfo.owner == user?._id
     console.log(isOwner)
     const userID = useGetSessionData()
+
     return (
         <>
             <Card>
@@ -19,7 +20,6 @@ const CardsComponents = ({ cardInfo, deleteCardByID, addFavoriteCard }) => {
                     <Button variant="primary"><Link to={`/details/${cardInfo._id}`}>Go to resume</Link></Button>
                     {isOwner && <Button variant="danger" onClick={() => deleteCardByID(cardInfo._id)}>Delete Card</Button>}
                     {!isOwner && <Button variant="primary" onClick={() => addFavoriteCard(userID._id, cardInfo._id)}>Like</Button>}
-                    <p>By {isOwner?.username}</p>
                 </Card.Body>
             </Card>
         </>
