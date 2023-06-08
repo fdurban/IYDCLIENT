@@ -16,7 +16,7 @@ const CardsComponents = ({ cardInfo, deleteCardByID, addFavoriteCard }) => {
                     <Card.Title>{cardInfo.title}</Card.Title>
                     <Card.Title>{cardInfo.subject}</Card.Title>
                     <Button variant="primary"><Link to={`/details/${cardInfo._id}`}>Go to resume</Link></Button>
-                    {isOwner && <Button variant="danger" onClick={() => deleteCardByID(_id)}>Delete Card</Button>}
+                    {isOwner && <Button variant="danger" onClick={() => deleteCardByID(cardInfo._id)}>Delete Card</Button>}
                     {/* {!isOwner && <Button variant="primary" onClick={() => addFavoriteCard(_id)}>Like</Button>} */}
                     <p>By {user?.username}</p>
                 </Card.Body>
