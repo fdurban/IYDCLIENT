@@ -8,7 +8,7 @@ const SubjectList = () => {
 
     const [cards, setCards] = useState([])
 
-    const { user_id } = useParams()
+    const { user_id, owner } = useParams()
 
     useEffect(() => {
         loadCardsBySubject()
@@ -23,8 +23,7 @@ const SubjectList = () => {
 
     return (
         <>
-            <h3>This is your subject list</h3>
-            <Link to={`/subject/MATH/user/${user_id}`}><strong>Matemati-cards</strong> (Matematics)</Link>
+            <Link to={`/subject/MATH/user/${user_id}/${owner}`}><strong>Matemati-cards</strong> (Matematics)</Link>
             <Link to={`/subject/ANATOMY/user/${user_id}`}><strong>Card-nathomy</strong> (Anathomy)</Link>
             <Link to={`/subject/BIOLOGY/user/${user_id}`}><strong>Biology</strong></Link>
             <Link to={`/subject/CHEMISTRY/user/${user_id}`}><strong>Chemistry</strong></Link>
