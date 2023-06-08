@@ -11,7 +11,7 @@ const UserComponent = ({ _id, username, avatar }) => {
                         <Card.Text>
                             {username}
                         </Card.Text>
-                        <Card.Img src={avatar} />
+                        <Card.Img className="top" src={avatar} />
                     </Card.Body>
                 </Card>
             </Link>

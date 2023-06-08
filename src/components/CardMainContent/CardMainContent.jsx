@@ -4,7 +4,7 @@ import CardResume from "../CardResume/CardResume"
 
 const CardMainContent = ({ cardInfoContent }) => {
 
-    // TODO: FUSIONAR UN ESTADO ÚNICO CON LOS RESUMENES*OPCIONAL
+
     const cardID = cardInfoContent._id
 
     const [mainContent, setMainContent] = useState(cardInfoContent.main_content)
