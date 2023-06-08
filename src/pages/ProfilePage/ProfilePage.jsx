@@ -11,7 +11,9 @@ const ProfilePage = () => {
 
     const [userData, setUserData] = useState({})
 
+    // const user = useGetSessionData()
     const { user } = useContext(AuthContext)
+>>>>>>> db0a8422fa067d16d9b42f452e36aa2af9530366
 
     useEffect(() => {
         userService

@@ -5,6 +5,9 @@ import { AuthContext } from "../../contexts/auth.context"
 
 const CardResume = ({ content, setContent, field, cardID, owner, addFavoriteCard }) => {
 
+    {/* TODO ESTE ES EL HIJO */ }
+
+
     const [isEditing, setIsEditing] = useState(false)
     const { user } = useContext(AuthContext)
 
