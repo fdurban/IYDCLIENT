@@ -1,5 +1,5 @@
 import { Navbar, Nav, Container } from "react-bootstrap"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect, useContext } from "react"
 import { AuthContext } from "../../contexts/auth.context"
 import { ThemeContext } from "../../contexts/theme.contex"
@@ -9,6 +9,13 @@ const Navigation = () => {
 
     const { theme, SwitchTheme } = useContext(ThemeContext)
     const { user, logout } = useContext(AuthContext)
+
+    const navigate = useNavigate()
+
+    const logoutUser = () => {
+        logout()
+        navigate('/login')
+    }
 
     return (
         <Navbar sticky='top' bg="dark" variant="dark" expand="lg" className='mb-5'>
@@ -25,7 +32,8 @@ const Navigation = () => {
                                 ?
                                 <>
                                     &&
-                                    <Nav.Link as="span" onClick={logout}>Log out</Nav.Link>
+                                    {/* <Nav.Link as="span" to={`/login`} onClick={logout}>Log out</Nav.Link> */}
+                                    <span className="nav-link" onClick={logoutUser}>Log out</span>
                                     <Nav.Link as="span">
                                         <Link to={`/profile/user/${user._id}`}>Hello {user.username}</Link>
                                         {/* <img src={user?.avatar} alt="avatar" /> */}

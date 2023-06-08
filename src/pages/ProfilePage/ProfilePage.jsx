@@ -27,6 +27,7 @@ const ProfilePage = () => {
             <h1>Hello, <strong>{userData?.username}</strong>!</h1>
             <img src={userData?.avatar} alt="avatar" />
             <hr />
+            <p className="Info">{userData?.infor}</p>
             <Row>
                 <SubjectList />
             </Row>
