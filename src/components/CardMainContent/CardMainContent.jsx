@@ -1,7 +1,6 @@
 import { Container, Card, Button, Col } from "react-bootstrap"
 import { useEffect, useState } from "react"
 import CardResume from "../CardResume/CardResume"
-
 const CardMainContent = ({ cardInfoContent }) => {
 
 
