@@ -17,6 +17,7 @@ const CardsComponents = ({ cardInfo, deleteCardByID, addFavoriteCard }) => {
                 <Card.Body>
                     <Card.Title>{cardInfo.title}</Card.Title>
                     <Card.Title>{cardInfo.subject}</Card.Title>
+                    <Card.Title>Likes: {cardInfo.likes}</Card.Title>
                     <Button variant="primary"><Link to={`/details/${cardInfo._id}`}>Go to resume</Link></Button>
                     {isOwner && <Button variant="danger" onClick={() => deleteCardByID(cardInfo._id)}>Delete Card</Button>}
                     {!isOwner && <Button variant="primary" onClick={() => addFavoriteCard(userID._id, cardInfo._id)}>Like</Button>}

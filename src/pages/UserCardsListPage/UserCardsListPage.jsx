@@ -19,6 +19,8 @@ const CardsListPage = () => {
     const [favoriteCards, setFavoriteCards] = useState([])
     const [showModal, setShowModal] = useState(false)
 
+    console.log(user._id, user_id)
+    const isPageOwner = user._id === user_id
 
     useEffect(() => {
         loadCards()
@@ -82,9 +84,7 @@ const CardsListPage = () => {
                         <hr />
                     </>
                 }
-
                 <Row>
-                    {/* TODO: DESACOPLAR EN CARDSLIST */}
                     {cards.map(elm => {
                         const isOwner = elm.owner === user?._id
                         if (isOwner) {
@@ -101,22 +101,34 @@ const CardsListPage = () => {
                                     <CardsComponents cardInfo={elm} addFavoriteCard={addFavoriteCard} />
 
                                 </Col>
+
                             )
 
                         }
                     })}
                 </Row>
-                <h1>Here are your favorite cards!</h1>
                 <Row>
-                    {favoriteCards.map(elm => (
-                        <Col md={{ span: 4 }} key={elm._id}>
-                            <FavoriteCardsComponents removeFavoriteCard={() => removeFavoriteCard(elm._id)} cardInfo={elm} subject={subject} user_id={user_id} />
-                        </Col>
-                    ))}
+                    <>
+
+                        {isPageOwner && (<>
+                            <h1>Here are your favorite cards!</h1>
+                            <hr />
+
+                            {favoriteCards.map(elm => {
+                                const isOwner = elm.owner === user?._id
+                                if (!isOwner) {
+                                    return (
+                                        <Col md={{ span: 4 }} key={elm._id}>
+
+                                            <FavoriteCardsComponents removeFavoriteCard={removeFavoriteCard} cardInfo={elm} subject={subject} user_id={user_id} />
+                                        </Col>
+                                    )
+                                }
+                            })}
+                        </>)}
+                    </>
                 </Row>
-
             </Container>
-
             <Modal show={showModal} onHide={() => setShowModal(false)} >
                 <Modal.Header closeButton>
                     <Modal.Title>New card</Modal.Title>
@@ -125,9 +137,7 @@ const CardsListPage = () => {
                     <CardForm user_id={user_id} subject={subject} closeModal={() => setShowModal(false)} updateList={loadCards} />
                 </Modal.Body>
             </Modal>
-
         </>
-
     )
 }
 
