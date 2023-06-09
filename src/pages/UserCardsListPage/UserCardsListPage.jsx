@@ -61,9 +61,9 @@ const CardsListPage = () => {
             .catch(err => console.log(err))
     }
 
-    const removeFavoriteCard = (_id) => {
+    const removeFavoriteCard = (_id, card_id) => {
         userService
-            .removeFavoriteCard(_id)
+            .removeFavoriteCard(_id, card_id)
             .then(({ data }) => loadCards())
             .catch(err => console.log(err))
     }
