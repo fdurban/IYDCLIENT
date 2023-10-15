@@ -27,6 +27,7 @@ const CardsListPage = () => {
     }, [user])
 
     const loadCards = () => {
+        
         cardsService
             .getCardsByOwner(user_id)
             .then(({ data }) => {

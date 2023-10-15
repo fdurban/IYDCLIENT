@@ -15,6 +15,7 @@ const CardList = () => {
     }, [])
 
     const loadCardsByOwner = () => {
+        
         cardsService
             .getCardsByOwner(user._id)
             .then(({ data }) => setCards(data))
