@@ -8,26 +8,24 @@ import { useParams } from "react-router-dom"
 import CardForm from "../../components/CardsForm/CardForm"
 import CardResume from "../../components/CardResume/CardResume"
 import FavoriteCardsComponents from "../../components/FavoriteCardComponent.jsx/favoriteCardComponent"
+import Wikipedia from "../../components/Wikipedia/wikipedia"
 
 const CardsListPage = () => {
 
     const { user } = useContext(AuthContext)
-    console.log(user._id)
     const { subject, user_id } = useParams()
-    console.log(user_id)
     const [cards, setCards] = useState([])
     const [favoriteCards, setFavoriteCards] = useState([])
     const [showModal, setShowModal] = useState(false)
 
-    console.log(user._id, user_id)
-    const isPageOwner = user._id === user_id
+    const isPageOwner = user === user_id
+    console.log(user_id, "ESTE ES EL PAGEEEEEEEE OWNERRRRR")
 
     useEffect(() => {
         loadCards()
     }, [user])
 
     const loadCards = () => {
-        
         cardsService
             .getCardsByOwner(user_id)
             .then(({ data }) => {
@@ -54,7 +52,6 @@ const CardsListPage = () => {
             .deleteCard(_id)
             .then(() => loadCards())
             .catch(err => console.log(err))
-
     }
 
     const addFavoriteCard = (user_id, card_id) => {
@@ -67,17 +64,19 @@ const CardsListPage = () => {
     const removeFavoriteCard = (_id, card_id) => {
         userService
             .removeFavoriteCard(_id, card_id)
-            .then(({ data }) => loadCards())
+            .then(() => loadCards())
             .catch(err => console.log(err))
     }
 
+
     return (
         <>
+            <Wikipedia />
             <Container>
                 <h1>Hola soy UserCardsListPage</h1>
                 <hr />
 
-                {user._id === user_id &&
+                {
                     <>
                         <div className="d-grid mt-3">
                             <Button variant="dark" type="submit" onClick={() => setShowModal(true)}>Create Card</Button>

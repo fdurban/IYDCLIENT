@@ -18,7 +18,7 @@ const Navigation = () => {
     }
 
     return (
-        <Navbar sticky='top' expand="lg" className='mb-5' >
+        <Navbar sticky='top' expand="lg" >
             <Container>
                 <Navbar.Brand href="/">IYD</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -31,7 +31,7 @@ const Navigation = () => {
                             user
                                 ?
                                 <>
-                                    &&
+
                                     {/* <Nav.Link as="span" to={`/login`} onClick={logout}>Log out</Nav.Link> */}
                                     <span className="nav-link" onClick={logoutUser}>Log out</span>
                                     <Nav.Link as="span">

@@ -8,7 +8,6 @@ const CardsComponents = ({ cardInfo, deleteCardByID, addFavoriteCard }) => {
 
     const { user } = useContext(AuthContext)
     const isOwner = cardInfo.owner == user?._id
-    console.log(isOwner)
     const userID = useGetSessionData()
 
     return (

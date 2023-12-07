@@ -16,7 +16,7 @@ const AppRoutes = () => {
             <Route path='/cards' />
             <Route path='/subject/:subject/user/:user_id' element={<UserCardsListPage />} />
             <Route path='/details/:id' element={<CardDetailsPage />} />
-            <Route path='/categories' element={<h1>Cards-tegories</h1>} />
+            <Route path='/categories' element={<h1>Categories</h1>} />
             <Route path='/getallusers' element={<UserListPage />} />
             <Route path='/users/:user_id' element={<ProfilePage />} />
 
