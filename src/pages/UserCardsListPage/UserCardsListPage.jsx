@@ -19,7 +19,6 @@ const CardsListPage = () => {
     const [showModal, setShowModal] = useState(false)
 
     const isPageOwner = user === user_id
-    console.log(user_id, "ESTE ES EL PAGEEEEEEEE OWNERRRRR")
 
     useEffect(() => {
         loadCards()

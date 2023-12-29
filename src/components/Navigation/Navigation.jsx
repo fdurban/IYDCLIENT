@@ -18,14 +18,14 @@ const Navigation = () => {
     }
 
     return (
-        <Navbar sticky='top' expand="lg" >
+        <Navbar sticky='top' expand="lg" className="bg-body-tertiary">
             <Container>
                 <Navbar.Brand href="/">IYD</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link as="span">
-                            <Link to="/getAllUsers">Users</Link>
+                            <Link to="/getAllUsers" className="users">Users</Link>
                         </Nav.Link>
                         {
                             user

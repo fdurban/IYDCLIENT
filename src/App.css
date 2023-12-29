@@ -1,6 +1,13 @@
 @font-face {
   font-family: 'MiFuente';
-  src: url('../public/Rajdhani/Rajdhani-SemiBold.ttf') format('truetype');
+  src: url('../public/Poppins/Poppins-Light.ttf') format('truetype');
+  /* Ruta relativa a la ubicación del archivo CSS */
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MiFuenteFuerte';
+  src: url('../public/Poppins/Poppins-Black.ttf') format('truetype');
   /* Ruta relativa a la ubicación del archivo CSS */
   font-weight: normal;
   font-style: normal;

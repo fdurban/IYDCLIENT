@@ -1,28 +1,25 @@
-body {
-    background-image: url('../../../public/pontus-wellgraf-FU9bFwNTVJ8-unsplash.jpg');
-    background-size: cover;
+.first-title {
+    font-family: 'MiFuenteFuerte';
 }
 
-/* homePage.css */
 
-
-
-.title {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white
-        /* Alineación horizontal del texto */
+.desktop-image {
+    padding-bottom: 100px;
 }
 
-.introductory-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    /* Alineación horizontal del texto */
-    color: white
+.custom-padding {
+    padding-top: 80px;
+    /* Ajusta el espaciado superior según tus necesidades */
+    padding-bottom: 50px;
+    /* Ajusta el espaciado inferior según tus necesidades */
+}
+
+/* Estilos adicionales si son necesarios */
+@media (max-width: 768px) {
+    .custom-padding {
+        padding-top: 30px;
+        /* Espaciado superior en dispositivos móviles o pequeñas pantallas */
+        padding-bottom: 30px;
+        /* Espaciado inferior en dispositivos móviles o pequeñas pantallas */
+    }
 }
