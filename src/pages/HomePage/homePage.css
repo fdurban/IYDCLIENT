@@ -1,3 +1,11 @@
+.HomeSection1 {
+    background-color: #F6F9FB
+}
+.secondandthirdsection{
+    background-color: #F3F4F6;
+    padding-top: 100px;
+}
+
 .first-title {
     font-family: 'MiFuenteFuerte';
 }
@@ -7,19 +15,51 @@
     padding-bottom: 100px;
 }
 
-.custom-padding {
-    padding-top: 80px;
-    /* Ajusta el espaciado superior según tus necesidades */
-    padding-bottom: 50px;
-    /* Ajusta el espaciado inferior según tus necesidades */
+.signup-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2463EB;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-/* Estilos adicionales si son necesarios */
+.custom-padding {
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+
+
+
+/* cardscss */
+.homecard-gridcontainer {
+    border-radius: 2%;
+    padding: 10%;
+    display: grid;
+    gap: 10px;
+    background-color: white;
+}
+.homecard-gridcontainer-second-section {
+    border-radius: 2%;
+    padding: 10%;
+    display: grid;
+    gap: 10px;
+    background-color: white;
+    width: 100px;
+    display: inline-block;
+    justify-content: center;
+}
+.homercard-title{
+    font-family: 'MiFuenteFuerte';
+}
+
 @media (max-width: 768px) {
     .custom-padding {
         padding-top: 30px;
-        /* Espaciado superior en dispositivos móviles o pequeñas pantallas */
         padding-bottom: 30px;
-        /* Espaciado inferior en dispositivos móviles o pequeñas pantallas */
     }
 }
