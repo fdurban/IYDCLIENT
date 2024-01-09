@@ -25,7 +25,14 @@ const Navigation = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link as="span">
-                            <Link to="/getAllUsers" className="users">Users</Link>
+                            {
+                                user?
+                                <>
+                                <Link to="/getAllUsers" className="users">Users</Link>
+                                </>
+                                :
+                                null
+                            }
                         </Nav.Link>
                         {
                             user

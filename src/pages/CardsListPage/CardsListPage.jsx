@@ -6,7 +6,6 @@ import CardsComponents from "../../components/Card/CardComponent"
 import { AuthContext } from "../../contexts/auth.context"
 import { useParams } from "react-router-dom"
 import CardForm from "../../components/CardsForm/CardForm"
-import CardResume from "../../components/CardResume/CardResume"
 import FavoriteCardsComponents from "../../components/FavoriteCardComponent.jsx/favoriteCardComponent"
 import Wikipedia from "../../components/Wikipedia/wikipedia"
 
@@ -14,12 +13,11 @@ const CardsListPage = () => {
 
     const { user } = useContext(AuthContext)
     const { subject, user_id } = useParams()
+    console.log(user_id)
     const [cards, setCards] = useState([])
     const [favoriteCards, setFavoriteCards] = useState([])
     const [showModal, setShowModal] = useState(false)
-
-    const isPageOwner = user === user_id
-
+    
     useEffect(() => {
         loadCards()
     }, [user])
@@ -60,73 +58,57 @@ const CardsListPage = () => {
             .catch(err => console.log(err))
     }
 
-    const removeFavoriteCard = (_id, card_id) => {
+    const removeFavoriteCard = (user_id, card_id) => {
         userService
-            .removeFavoriteCard(_id, card_id)
+            .removeFavoriteCard(user_id, card_id)
             .then(() => loadCards())
             .catch(err => console.log(err))
     }
 
-
     return (
         <>
-            <Wikipedia />
             <Container>
-                <h1>Hola soy UserCardsListPage</h1>
-                <hr />
 
-                {
-                    <>
-                        <div className="d-grid mt-3">
-                            <Button variant="dark" type="submit" onClick={() => setShowModal(true)}>Create Card</Button>
-                        </div>
-                        <hr />
-                    </>
-                }
                 <Row>
-                    {cards.map(elm => {
-                        const isOwner = elm.owner === user?._id
-                        if (isOwner) {
-                            return (
-                                <>
-                                    <Col md={{ span: 4 }} key={elm._id}>
-                                        <CardsComponents deleteCardByID={deleteCardByID} cardInfo={elm} subject={subject} user_id={user_id} />
-                                    </Col>
-                                </>
-                            )
-                        } else {
-                            return (
-                                <Col md={{ span: 4 }} key={elm._id}>
-                                    <CardsComponents cardInfo={elm} addFavoriteCard={addFavoriteCard} />
-
-                                </Col>
-
-                            )
-
+                    <Col md={12}>
+                        {
+                            <>
+                                <div className="d-grid mt-3">
+                                    <Button variant="dark" type="submit" onClick={() => setShowModal(true)}>Create Card</Button>
+                                </div>
+                            </>
                         }
-                    })}
+                    </Col>
+                    <Col md={12}>
+                        {cards.map(elm => {
+                            {
+                                return (
+                                    <>
+                                        <CardsComponents deleteCardByID={deleteCardByID} cardInfo={elm} subject={subject} user_id={user_id} addFavoriteCard={addFavoriteCard} />
+                                    </>
+                                )
+                            }
+                        })}
+
+                    </Col>
                 </Row>
                 <Row>
                     <>
-
-                        {isPageOwner && (<>
+                        <>
                             <h1>Here are your favorite cards!</h1>
-                            <hr />
-
                             {favoriteCards.map(elm => {
-                                const isOwner = elm.owner === user?._id
-                                if (!isOwner) {
-                                    return (
-                                        <Col md={{ span: 4 }} key={elm._id}>
+                                return (
+                                    <Col md={{ span: 4 }} key={elm._id}>
 
-                                            <FavoriteCardsComponents removeFavoriteCard={removeFavoriteCard} cardInfo={elm} subject={subject} user_id={user_id} />
-                                        </Col>
-                                    )
-                                }
+                                        <FavoriteCardsComponents removeFavoriteCard={removeFavoriteCard} cardInfo={elm} subject={subject} user_id={user_id} />
+                                    </Col>
+                                )
+
                             })}
-                        </>)}
+                        </>
                     </>
                 </Row>
+
             </Container>
             <Modal show={showModal} onHide={() => setShowModal(false)} >
                 <Modal.Header closeButton>
@@ -136,6 +118,8 @@ const CardsListPage = () => {
                     <CardForm user_id={user_id} subject={subject} closeModal={() => setShowModal(false)} updateList={loadCards} />
                 </Modal.Body>
             </Modal>
+            <Wikipedia />
+
         </>
     )
 }

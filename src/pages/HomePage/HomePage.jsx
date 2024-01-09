@@ -3,8 +3,12 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom'
+import HomeCard from '../../components/HomeCard/HomeCard';
+import { useContext } from 'react';
+import { AuthContext } from "../../contexts/auth.context"
 
 const HomePage = () => {
+    const { user, logout } = useContext(AuthContext)
     return (
         <>
             <section className='HomeSection1'>
@@ -19,9 +23,17 @@ const HomePage = () => {
                             <p>A comprehensive study platform designed to enhance your learning experience. Accessible, customizable,
                                 and efficient.
                             </p>
-                            <div>
-                                <Link className="signup-btn" to={`/login`}>Get started</Link>
-                            </div>
+                            {user ? 
+                                <div>
+                                    <Link className="signup-btn" to={`/profile/user/${user._id}`}>Go to profile</Link>
+                                </div>
+                            :
+                                <div>
+                                    <Link className="signup-btn" to={`/login`}>Get started</Link>
+                                </div>
+
+                            }
+                   
                         </Col>
                     </Row>
 
@@ -36,47 +48,35 @@ const HomePage = () => {
                         </p>
                     </div>
                     <Row className='justify-content-center text-center'>
-                        <Col xs={12} md={4} className="mb-3 mb-md-0">
-                            <div className="homecard-gridcontainer">
-                                <h5 className='homercard-title'>Comprehensive Study Materials</h5>
-                                <p>Access a wide range of study materials across various subjects and levels.</p>
-                            </div></Col>
-                        <Col xs={12} md={4} className="mb-3 mb-md-0">
-                            <div className="homecard-gridcontainer">
-                                <h5 className='homercard-title'>Time Management Tools</h5>
-                                <p>Utilize our time management tools to plan your study schedule effectively.</p>
-                            </div>
-                        </Col>
-                        <Col xs={12} md={4} className="mb-3 mb-md-0">
-                            <div className="homecard-gridcontainer">
-                                <h5 className='homercard-title'>Collaborative learning</h5>
-                                <p>Engage in collaborative learning with peers and tutors to enhance your understanding.</p>
-                            </div>
-                        </Col>
+                        <HomeCard title={"Comprehensive Study Materials"}
+                            subtitle={"Access a wide range of study materials across various subjects and levels."}>
+                        </HomeCard>
+
+                        <HomeCard title={"Time Management Tools"}
+                            subtitle={"Utilize our time management tools to plan your study schedule effectively."}>
+                        </HomeCard>
+
+                        <HomeCard title={"Collaborative learning"}
+                            subtitle={"Engage in collaborative learning with peers and tutors to enhance your understanding."}>
+                        </HomeCard>
                     </Row>
                 </Container>
             </section>
             <section className='secondandthirdsection'>
                 <Container>
-                <Row className='justify-content-center text-center'>
-                    <Col xs={12} md={4}>
-                        <h1 className='first-title'>hear from users</h1>
-                        <p>Don't take our word for it, see what our users have to say about IYD Study App.</p>
-                    </Col>
-                </Row>
                     <Row className='justify-content-center text-center'>
-                        <Col xs={12} md={4} className="mb-3 mb-md-0">
-                            <div className="homecard-gridcontainer">
-                                <h5 className='homercard-title'>Comprehensive Study Materials</h5>
-                                <p>Access a wide range of study materials across various subjects and levels.</p>
-                            </div>
+                        <Col xs={12} md={4}>
+                            <h1 className='first-title'>hear from users</h1>
+                            <p>Don't take our word for it, see what our users have to say about IYD Study App.</p>
                         </Col>
-                        <Col xs={12} md={4} className="mb-3 mb-md-0">
-                            <div className="homecard-gridcontainer">
-                                <h5 className='homercard-title'>Time Management Tools</h5>
-                                <p>Utilize our time management tools to plan your study schedule effectively.</p>
-                            </div>
-                        </Col>
+                    </Row>
+                    <Row className='justify-content-center text-center'>
+                        <HomeCard title={"Comprehensive Study Materials"}
+                            subtitle={"Access a wide range of study materials across various subjects and levels."}>
+                        </HomeCard>
+                        <HomeCard title={"Time Management Tools"}
+                            subtitle={"Utilize our time management tools to plan your study schedule effectively."}>
+                        </HomeCard>
                     </Row>
 
                 </Container>

@@ -2,8 +2,6 @@ import { useState } from "react"
 import { Form, Button, Row, Col } from "react-bootstrap"
 import cardService from "../../services/cards.services"
 
-// 
-
 
 const CardForm = ({ subject, user_id, closeModal, updateList }) => {
     const [cardData, setCardData] = useState({

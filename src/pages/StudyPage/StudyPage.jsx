@@ -1,11 +1,11 @@
 import { useEffect, useState, useContext } from "react"
 import { Container, Col } from "react-bootstrap"
 import cardsService from "../../services/cards.services"
-import { AuthContext } from './../../contexts/auth.context'
+import { AuthContext } from '../../contexts/auth.context'
 import CardMainContent from "../../components/CardMainContent/CardMainContent"
 import { useParams } from "react-router-dom"
 
-const CardDetailsPage = () => {
+const StudyPage = () => {
 
     const { id } = useParams()
     const [card, setCard] = useState([])
@@ -33,4 +33,4 @@ const CardDetailsPage = () => {
     )
 }
 
-export default CardDetailsPage
+export default StudyPage

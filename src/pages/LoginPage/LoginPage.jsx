@@ -13,7 +13,6 @@ const LoginPage = () => {
 
                     <h1>Inicio de sesión</h1>
 
-                    <hr />
 
                     <LoginForm />
 
