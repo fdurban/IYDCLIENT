@@ -7,11 +7,10 @@ import userService from "../../services/user.services"
 import HomeCard from "../HomeCard/HomeCard"
 
 const SubjectList = () => {
-
     return (
         <>
             <Row className='custom-padding-subject-list'>
-            <p>What are you studying today?</p>
+            <p>What subject studying today?</p>
                 <HomeCard title="Maths" subtitle={<Link to={`subject/MATH`}>click here</Link>}></HomeCard>
                 <HomeCard title="Anatomy" subtitle={<Link to={`subject/ANATOMY`}>click here</Link>}></HomeCard>
                 <HomeCard title="Biology" subtitle={<Link to={`subject/BIOLOGY`}>click here</Link>}></HomeCard>

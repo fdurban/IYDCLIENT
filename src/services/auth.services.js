@@ -27,10 +27,13 @@ class AuthService {
     login(userData) {
         return this.api.post('/login', userData)
     }
+    
 
     verify(token) {
         return this.api.get('/verify', { headers: { Authorization: `Bearer ${token}` } })
     }
+
+    
 }
 
 const authService = new AuthService()

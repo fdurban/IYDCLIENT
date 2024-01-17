@@ -1,18 +1,17 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import LoginForm from '../../components/LoginForm/LoginForm'
+import './LoginPage.css'
 
 const LoginPage = () => {
 
     return (
 
-        <Container>
+        <section className='loginbackground'>
+            <Container >
 
             <Row>
 
                 <Col md={{ offset: 3, span: 6 }}>
-
-                    <h1>Inicio de sesión</h1>
-
 
                     <LoginForm />
 
@@ -20,6 +19,11 @@ const LoginPage = () => {
             </Row>
 
         </Container>
+
+    </section>
+
+
+
     )
 }
 

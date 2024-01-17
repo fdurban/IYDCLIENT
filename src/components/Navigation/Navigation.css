@@ -3,5 +3,17 @@
     color: black;
 }
 .bg-body-tertiary{
-    background-color: white
+}
+
+.custom-navbar {
+    background-color: white;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    /* Ajusta los valores según tus necesidades */
+    z-index: 1000;
+    /* Asegúrate de que la barra de navegación esté por encima de otros elementos */
 }

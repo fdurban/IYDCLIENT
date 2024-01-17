@@ -5,15 +5,17 @@ import AppRoutes from './routes/AppRoutes'
 import Footer from './components/Footer/Footer'
 
 function App() {
-
   return (
-    <>
+    <div className="app-container">
       <Navigation />
-      <AppRoutes />
+      <div className="main-content">
+        <AppRoutes />
+      </div>
       <Footer />
-    </>
-  )
+    </div>
+  );
 }
+
 
 export default App
 

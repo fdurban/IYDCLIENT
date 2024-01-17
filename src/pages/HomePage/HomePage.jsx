@@ -7,7 +7,7 @@ import HomeCard from '../../components/HomeCard/HomeCard';
 import { useContext } from 'react';
 import { AuthContext } from "../../contexts/auth.context"
 
-const HomePage = () => {
+const HomePage = ({ isSticky }) => {
     const { user, logout } = useContext(AuthContext)
     return (
         <>

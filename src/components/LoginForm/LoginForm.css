@@ -1,0 +1,52 @@
+/* LoginForm.css */
+
+.login-container {
+    text-align: center;
+    background-color: white;
+    margin-top: 100px;
+}
+
+.loginform {
+    max-width: 300px;
+    margin-left: 15px;
+}
+
+.loginform label,
+.loginform input {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.logingoogle {
+    background-color: #2563EB;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    color: white;
+    border: none;
+}
+.chromelogo {
+    width: 20px;
+}
+
+.githublogo {
+    width: 20px;
+}
+.logingithub {
+    background-color: #1F2937;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    color: white;
+    border: none;
+}
+
+.classiclogin {
+    width: 100%;
+        background-color: #16A34A;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+}

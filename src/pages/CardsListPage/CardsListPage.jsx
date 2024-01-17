@@ -13,10 +13,10 @@ const CardsListPage = () => {
 
     const { user } = useContext(AuthContext)
     const { subject, user_id } = useParams()
-    console.log(user_id)
     const [cards, setCards] = useState([])
     const [favoriteCards, setFavoriteCards] = useState([])
     const [showModal, setShowModal] = useState(false)
+    const isOwner = user._id === user_id
     
     useEffect(() => {
         loadCards()
@@ -67,50 +67,34 @@ const CardsListPage = () => {
 
     return (
         <>
-            <Container>
-
+            <Container className="main-container"> 
                 <Row>
                     <Col md={12}>
-                        {
-                            <>
-                                <div className="d-grid mt-3">
-                                    <Button variant="dark" type="submit" onClick={() => setShowModal(true)}>Create Card</Button>
-                                </div>
-                            </>
-                        }
-                    </Col>
-                    <Col md={12}>
-                        {cards.map(elm => {
-                            {
-                                return (
-                                    <>
-                                        <CardsComponents deleteCardByID={deleteCardByID} cardInfo={elm} subject={subject} user_id={user_id} addFavoriteCard={addFavoriteCard} />
-                                    </>
-                                )
-                            }
-                        })}
-
+                        <div className="d-grid mt-3">
+                            <Button variant="dark" type="submit" onClick={() => setShowModal(true)}>
+                                <h1>Create Card</h1>
+                            </Button>
+                        </div>
                     </Col>
                 </Row>
+ 
                 <Row>
-                    <>
-                        <>
-                            <h1>Here are your favorite cards!</h1>
-                            {favoriteCards.map(elm => {
-                                return (
-                                    <Col md={{ span: 4 }} key={elm._id}>
-
-                                        <FavoriteCardsComponents removeFavoriteCard={removeFavoriteCard} cardInfo={elm} subject={subject} user_id={user_id} />
-                                    </Col>
-                                )
-
-                            })}
-                        </>
-                    </>
+                    {cards.map((elm) => (
+                        <CardsComponents key={elm._id} deleteCardByID={deleteCardByID} cardInfo={elm} subject={subject} user_id={user_id} addFavoriteCard={addFavoriteCard} />
+                    ))}
                 </Row>
 
+                <Row>
+                    <Col md={{ span: 4 }}>
+                        <h1>Here are your favorite cards!</h1>
+                        {favoriteCards.map((elm) => (
+                            <FavoriteCardsComponents key={elm._id} removeFavoriteCard={removeFavoriteCard} cardInfo={elm} subject={subject} user_id={user_id} />
+                        ))}
+                    </Col>
+                </Row>
             </Container>
-            <Modal show={showModal} onHide={() => setShowModal(false)} >
+
+            <Modal show={showModal} onHide={() => setShowModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>New card</Modal.Title>
                 </Modal.Header>
@@ -118,9 +102,10 @@ const CardsListPage = () => {
                     <CardForm user_id={user_id} subject={subject} closeModal={() => setShowModal(false)} updateList={loadCards} />
                 </Modal.Body>
             </Modal>
-            <Wikipedia />
 
+            <Wikipedia />
         </>
+
     )
 }
 

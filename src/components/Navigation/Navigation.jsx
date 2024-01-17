@@ -18,20 +18,20 @@ const Navigation = () => {
     }
 
     return (
-        <Navbar sticky='top' expand="lg" className="bg-body-tertiary">
-            <Container>
+        <Navbar expand="lg" className= "custom-navbar fixed-top">
+            
                 <Navbar.Brand href="/">IYD</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link as="span">
                             {
-                                user?
-                                <>
-                                <Link to="/getAllUsers" className="users">Users</Link>
-                                </>
-                                :
-                                null
+                                user ?
+                                    <>
+                                        <Link to="/getAllUsers" className="users">Users</Link>
+                                    </>
+                                    :
+                                    null
                             }
                         </Nav.Link>
                         {
@@ -58,7 +58,6 @@ const Navigation = () => {
                         }
                     </Nav>
                 </Navbar.Collapse>
-            </Container>
         </Navbar>
     )
 }

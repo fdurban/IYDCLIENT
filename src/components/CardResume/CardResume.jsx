@@ -26,10 +26,6 @@ const CardResume = ({ content, setContent, field, cardID, owner, addFavoriteCard
             .catch(err => console.log(err))
     }
 
-    if (!content) {
-        return <h1> loading </h1>
-    }
-
 
     if (owner === user._id) {
 
@@ -38,7 +34,6 @@ const CardResume = ({ content, setContent, field, cardID, owner, addFavoriteCard
                 {
                     !isEditing
                         ?
-                        // TODO: QUITAR ANCHOS EN LINEA DE LAS CARDS
                         <Card
                             className={`flip-card`}
                             style={{ width: '80rem' }}

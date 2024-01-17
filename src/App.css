@@ -1,19 +1,28 @@
 @font-face {
   font-family: 'MiFuente';
   src: url('../public/Poppins/Poppins-Light.ttf') format('truetype');
-  /* Ruta relativa a la ubicación del archivo CSS */
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'MiFuenteFuerte';
   src: url('../public/Poppins/Poppins-Black.ttf') format('truetype');
-  /* Ruta relativa a la ubicación del archivo CSS */
   font-weight: normal;
   font-style: normal;
 }
 
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
 body {
   font-family: 'MiFuente';
-  /* background-color: white; */
+}
+html {
+  scroll-behavior: smooth;
 }

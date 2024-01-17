@@ -1,9 +1,8 @@
 import { useContext, useState } from "react"
-import { Form, Button } from "react-bootstrap"
 import authService from './../../services/auth.services'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from "../../contexts/auth.context"
-
+import './LoginForm.css'
 
 
 const LoginForm = () => {
@@ -15,7 +14,7 @@ const LoginForm = () => {
 
     const navigate = useNavigate()
 
-    const { setUser } = useContext(AuthContext)
+    // const { setUser } = useContext(AuthContext)
 
     const { authenticateUser, storeToken } = useContext(AuthContext)
 
@@ -31,34 +30,40 @@ const LoginForm = () => {
         authService
             .login(loginData)
             .then(({ data }) => {
-                console.log({ data })
                 storeToken(data.authToken)
                 authenticateUser()
                 navigate(`/profile/user/${data.user_id}`)
             })
             .catch(err => console.log(err))
     }
+    const handleGoogleLogin = () => {
+        window.location.href = `${process.env.REACT_APP_API_URL}/auth/login/federated/google`;
+    };
 
     const { password, email } = loginData
 
     return (
-        <Form onSubmit={handleSubmit}>
-
-            <Form.Group className="mb-3" controlId="email">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" value={email} onChange={handleInputChange} name="email" />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="password">
-                <Form.Label>Contraseña</Form.Label>
-                <Form.Control type="password" value={password} onChange={handleInputChange} name="password" />
-            </Form.Group>
-
-            <div className="d-grid">
-                <Button variant="dark" type="submit">Acceder</Button>
+        <div className="login-container">
+            <h1>Login to your account</h1>
+            <p>Access all your study materials</p>
+            <div className='loginform'>
+                    <div>
+                        <button onClick={handleGoogleLogin} className='logingoogle'>
+                            <img src="chrome-svgrepo-com.svg" className="chromelogo" alt="Chrome Logo" />
+                            Login with Google
+                        </button>
+                        <button className='logingithub'>
+                            <img src="github-svgrepo-com.svg" className="githublogo" alt="GitHub Logo" />
+                            <a>Login with GitHub</a>
+                        </button>
+                    </div>
+                <form onSubmit={handleSubmit}>
+                    <input type="email" value={email} onChange={handleInputChange} name="email" placeholder="Email" />
+                    <input type="password" value={password} onChange={handleInputChange} name="password" placeholder="Password" />
+                    <button type="submit" className="classiclogin">Log in</button>
+                </form>
             </div>
-
-        </Form>
+        </div>
     )
 }
 

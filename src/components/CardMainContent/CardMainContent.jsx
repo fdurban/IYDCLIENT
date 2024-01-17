@@ -6,7 +6,7 @@ const CardMainContent = ({ cardInfoContent }) => {
 
     const cardID = cardInfoContent._id
 
-    const [mainContent,     setMainContent] = useState(cardInfoContent.main_content)
+    const [mainContent, setMainContent] = useState(cardInfoContent.main_content)
     const [resume1, setResume1] = useState(cardInfoContent.resume1)
     const [resume2, setResume2] = useState(cardInfoContent.resume2)
     const [resume3, setResume3] = useState(cardInfoContent.resume3)
@@ -23,7 +23,7 @@ const CardMainContent = ({ cardInfoContent }) => {
     }, [cardInfoContent])
 
     if (!cardInfoContent) {
-        return <h1> loading </h1>
+        return <h1> loading...ading </h1>
     }
 
     return (
