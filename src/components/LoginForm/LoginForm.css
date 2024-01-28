@@ -4,11 +4,20 @@
     text-align: center;
     background-color: white;
     margin-top: 100px;
+    border-radius: 10px;
+    box-shadow:
+        -2px -2px 4px rgba(0, 0, 0, 0.1),
+        2px -2px 4px rgba(0, 0, 0, 0.1),
+        -2px 2px 4px rgba(0, 0, 0, 0.1),
+        2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .loginform {
-    max-width: 300px;
     margin-left: 15px;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    /* Alinea los elementos en columna */
 }
 
 .loginform label,
@@ -18,35 +27,54 @@
     border-radius: 5px;
 }
 
+.logingoogle,
+.logingithub,
+.classiclogin {
+    width: 100%;
+    margin-bottom: 15px;
+    /* Añade margen inferior entre los botones y los campos */
+}
+
 .logingoogle {
     background-color: #2563EB;
     padding: 10px;
-    width: 100%;
     border-radius: 5px;
     color: white;
     border: none;
+    max-width: 200px;
 }
-.chromelogo {
+
+.logingithub {
+    background-color: #1F2937;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    max-width: 200px;
+}
+
+.logins {
+    display: flex;
+    flex-direction: column;
+}
+
+.chromelogo,
+.githublogo {
     width: 20px;
+    margin-right: 5px;
+    /* Añade un pequeño margen entre el logo y el texto */
 }
 
 .githublogo {
     width: 20px;
 }
-.logingithub {
-    background-color: #1F2937;
-    padding: 10px;
-    width: 100%;
-    border-radius: 5px;
-    color: white;
-    border: none;
-}
+
 
 .classiclogin {
-    width: 100%;
-        background-color: #16A34A;
-        color: white;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
+    background-color: #16A34A;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    position: relative;
 }

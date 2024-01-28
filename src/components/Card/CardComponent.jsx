@@ -3,6 +3,7 @@ import { AuthContext } from './../../contexts/auth.context'
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import useGetSessionData from "../../utils/get-session-data"
+import './CardComponent.css'
 
 const CardsComponents = ({ cardInfo, deleteCardByID, addFavoriteCard }) => {
 
@@ -17,12 +18,14 @@ const CardsComponents = ({ cardInfo, deleteCardByID, addFavoriteCard }) => {
                     <Card.Title>{cardInfo.title}</Card.Title>
                     <Card.Title>{cardInfo.subject}</Card.Title>
                     <Card.Title>Likes: {cardInfo.likes}</Card.Title>
-                    <Button variant="danger"><Link to={`/details/${cardInfo._id}`}>Go to resume</Link></Button>
-                    {isOwner?<Button variant="danger" onClick={() => deleteCardByID(cardInfo._id)}>Delete Card</Button> : null}
-                    {<Button variant="primary" onClick={() => addFavoriteCard(userID._id, cardInfo._id)}>Like</Button>}
+                    <div >
+                        <Button variant="success" className="buttonorder"><Link to={`/details/${cardInfo._id}`} className="gotoresume">Go to resume</Link></Button>
+                        {isOwner ? <Button variant="danger" onClick={() => deleteCardByID(cardInfo._id)}>Delete Card</Button> : null}
+                        {<Button variant="primary" onClick={() => addFavoriteCard(userID._id, cardInfo._id)}>Like</Button>}
+                    </div>
                 </Card.Body>
             </Card>
-            
+
         </>
     )
 }

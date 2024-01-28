@@ -18,46 +18,40 @@ const Navigation = () => {
     }
 
     return (
-        <Navbar expand="lg" className= "custom-navbar fixed-top">
-            
-                <Navbar.Brand href="/">IYD</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link as="span">
-                            {
-                                user ?
-                                    <>
-                                        <Link to="/getAllUsers" className="users">Users</Link>
-                                    </>
-                                    :
-                                    null
-                            }
-                        </Nav.Link>
-                        {
-                            user
-                                ?
-                                <>
 
-                                    {/* <Nav.Link as="span" to={`/login`} onClick={logout}>Log out</Nav.Link> */}
-                                    <span className="nav-link" onClick={logoutUser}>Log out</span>
-                                    <Nav.Link as="span">
-                                        <Link to={`/profile/user/${user._id}`}>Hello {user.username}</Link>
-                                        {/* <img src={user?.avatar} alt="avatar" /> */}
-                                    </Nav.Link>
-                                </>
-                                :
-                                <>
-                                    <Nav.Link as="span">
-                                        <Link to="/signup">Sing Up</Link>
-                                    </Nav.Link>
-                                    <Nav.Link as="span">
-                                        <Link to="/login">Log In</Link>
-                                    </Nav.Link>
-                                </>
-                        }
-                    </Nav>
-                </Navbar.Collapse>
+        <Navbar className="bg-body-tertiary" sticky="top">
+            <Navbar.Brand href="/" className="navbarbrand">IYD</Navbar.Brand>
+            <Navbar.Toggle />
+            <Navbar.Collapse className="justify-content-end">
+                <Nav.Link as="span">
+                    {
+                        user ?
+                            <>
+                                <Link to="/getallusers" className="users">Users</Link>
+                            </>
+                            :
+                            null
+                    }
+                </Nav.Link>
+                {
+                    user ?
+                        <>
+                            <span className="logout-link" onClick={logoutUser}>Log out</span>
+                            <Nav.Link as="span">
+                                <Link to={`/profile/user/${user._id}`} className="hellouser">Hello {user.username}</Link>
+                            </Nav.Link>
+                        </>
+                        :
+                        <>
+                            <Nav.Link as="span">
+                                <Link to="/signup" className="navbarsignupbutton">Sing Up</Link>
+                            </Nav.Link>
+                            <Nav.Link as="span">
+                                <Link to="/login" className="navbarloginbutton">Log In</Link>
+                            </Nav.Link>
+                        </>
+                }
+            </Navbar.Collapse>
         </Navbar>
     )
 }

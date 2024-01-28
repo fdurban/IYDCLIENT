@@ -1,3 +1,13 @@
+.addCardButton {
+    width: 50px;
+    height: 50px;
+    aspect-ratio: 1 / 1;
+    background-color: #18A24A;
+    color: white;
+    border: none;
+    border-radius: 50%;
+}
+
 .main-container {
-    position: relative;
+    padding: 15px
 }

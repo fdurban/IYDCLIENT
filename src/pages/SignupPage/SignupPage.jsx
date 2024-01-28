@@ -5,19 +5,19 @@ import './SignUpPage.css'
 const SignupPage = () => {
 
     return (
-<section className='signupbackground'>
+        <div className='signupbackground'>
 
-        <Container>
-            <Row>
+            <Container>
+                <Row>
 
-                <Col md={{ offset: 3, span: 6 }}>
-                    <SignupForm />
-                </Col>
-            </Row>
+                    <Col md={{ offset: 3, span: 6 }}>
+                        <SignupForm />
+                    </Col>
+                </Row>
 
-        </Container>
+            </Container>
 
-</section>
+        </div>
     )
 }
 

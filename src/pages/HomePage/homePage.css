@@ -1,7 +1,8 @@
 .HomeSection1 {
     background-color: #F6F9FB
 }
-.secondandthirdsection{
+
+.secondandthirdsection {
     background-color: #F3F4F6;
     padding-top: 100px;
 }
@@ -12,7 +13,8 @@
 
 
 .desktop-image {
-    padding-bottom: 100px;
+    margin-bottom: 100px;
+    border-radius: 40px;
 }
 
 .signup-btn {
@@ -33,12 +35,10 @@
     padding-bottom: 50px;
 }
 
-
-
-/* cardscss */
-
-
-
+.custom-padding-bottom-part {
+    padding-top: 150px;
+    padding-bottom: 80px;
+}
 
 @media (max-width: 768px) {
     .custom-padding {

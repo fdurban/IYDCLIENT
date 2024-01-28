@@ -7,8 +7,8 @@ import HomeCard from '../../components/HomeCard/HomeCard';
 import { useContext } from 'react';
 import { AuthContext } from "../../contexts/auth.context"
 
-const HomePage = ({ isSticky }) => {
-    const { user, logout } = useContext(AuthContext)
+const HomePage = () => {
+    const { user } = useContext(AuthContext)
     return (
         <>
             <section className='HomeSection1'>
@@ -23,17 +23,17 @@ const HomePage = ({ isSticky }) => {
                             <p>A comprehensive study platform designed to enhance your learning experience. Accessible, customizable,
                                 and efficient.
                             </p>
-                            {user ? 
+                            {user ?
                                 <div>
                                     <Link className="signup-btn" to={`/profile/user/${user._id}`}>Go to profile</Link>
                                 </div>
-                            :
+                                :
                                 <div>
                                     <Link className="signup-btn" to={`/login`}>Get started</Link>
                                 </div>
 
                             }
-                   
+
                         </Col>
                     </Row>
 
@@ -48,17 +48,21 @@ const HomePage = ({ isSticky }) => {
                         </p>
                     </div>
                     <Row className='justify-content-center text-center'>
-                        <HomeCard title={"Comprehensive Study Materials"}
-                            subtitle={"Access a wide range of study materials across various subjects and levels."}>
-                        </HomeCard>
-
-                        <HomeCard title={"Time Management Tools"}
-                            subtitle={"Utilize our time management tools to plan your study schedule effectively."}>
-                        </HomeCard>
-
-                        <HomeCard title={"Collaborative learning"}
-                            subtitle={"Engage in collaborative learning with peers and tutors to enhance your understanding."}>
-                        </HomeCard>
+                        <Col xs={12} md={4} >
+                            <HomeCard title={"Comprehensive Study Materials"}
+                                subtitle={"Access a wide range of study materials across various subjects and levels."}>
+                            </HomeCard>
+                        </Col>
+                        <Col xs={12} md={4} >
+                            <HomeCard title={"Time Management Tools"}
+                                subtitle={"Utilize our time management tools to plan your study schedule effectively."}>
+                            </HomeCard>
+                        </Col>
+                        <Col xs={12} md={4} >
+                            <HomeCard title={"Collaborative learning"}
+                                subtitle={"Engage in collaborative learning with peers and tutors to enhance your understanding."}>
+                            </HomeCard>
+                        </Col>
                     </Row>
                 </Container>
             </section>
@@ -71,18 +75,38 @@ const HomePage = ({ isSticky }) => {
                         </Col>
                     </Row>
                     <Row className='justify-content-center text-center'>
-                        <HomeCard title={"Comprehensive Study Materials"}
-                            subtitle={"Access a wide range of study materials across various subjects and levels."}>
-                        </HomeCard>
-                        <HomeCard title={"Time Management Tools"}
-                            subtitle={"Utilize our time management tools to plan your study schedule effectively."}>
-                        </HomeCard>
+                        <Col xs={12} md={4} >
+                            <HomeCard title={"Judith"}
+                                subtitle={"IYD made me prepare my exams better than before."}>
+                            </HomeCard>
+                        </Col>
+                        <Col xs={12} md={4} >
+                            <HomeCard title={"Jaime"}
+                                subtitle={"I´m impressed on how this app made me increase my productivity."}>
+                            </HomeCard>
+                        </Col>
                     </Row>
 
                 </Container>
             </section>
             <section>
-                <h1>Ready to enhance your learning experience?</h1>
+                <div className='text-center  custom-padding-bottom-part'>
+                    <h1 className='first-title'>Ready to enhance your learning experience?</h1>
+                    <p>
+                        Discover the amazing features of IYD study app designed specifically to enhance your learning
+                        experience.
+                    </p>
+                    {user ?
+                        <div>
+                            <Link className="signup-btn" to={`/profile/user/${user._id}`}>Go to profile</Link>
+                        </div>
+                        :
+                        <div>
+                            <Link className="signup-btn" to={`/login`}>Get started</Link>
+                        </div>
+
+                    }
+                </div>
             </section>
         </>
     );

@@ -5,22 +5,24 @@ import './LoginPage.css'
 const LoginPage = () => {
 
     return (
+        <>
+            <div className='loginbackground'>
+                <Container >
 
-        <section className='loginbackground'>
-            <Container >
+                    <Row>
 
-            <Row>
+                        <Col md={{ offset: 4, span: 5 }}>
 
-                <Col md={{ offset: 3, span: 6 }}>
+                            <LoginForm />
 
-                    <LoginForm />
+                        </Col>
+                    </Row>
 
-                </Col>
-            </Row>
+                </Container>
 
-        </Container>
+            </div>
 
-    </section>
+        </>
 
 
 

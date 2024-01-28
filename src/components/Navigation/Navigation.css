@@ -1,19 +1,51 @@
-.users{
+.users {
     text-decoration: none;
     color: black;
-}
-.bg-body-tertiary{
+    margin-right: 20px;
 }
 
-.custom-navbar {
+.bg-body-tertiary {
     background-color: white;
-    position: relative;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    /* Ajusta los valores según tus necesidades */
-    z-index: 1000;
-    /* Asegúrate de que la barra de navegación esté por encima de otros elementos */
+}
+
+.justify-content-end {
+    margin-right: 40px;
+}
+
+.navbarbrand {
+    margin-left: 40px;
+}
+
+.navbarloginbutton,
+.navbarsignupbutton,
+navlink,
+.hellouser {
+    text-decoration: none;
+    color: black;
+
+    border-bottom: 2px solid transparent;
+    /* Define la duración y el tipo de transición */
+    transition: border-bottom 0.3s ease;
+    margin-right: 20px;
+}
+
+.hellouser {
+    margin-left: 20px;
+}
+
+.navbarloginbutton:hover,
+.navbarsignupbutton:hover {
+    /* Estilos para el hover */
+    color: #3366cc;
+    border-bottom: 2px solid #3366cc;
+    /* Cambia el color a tu preferencia */
+
+}
+
+.users:hover,
+.hellouser:hover,
+.logout-link:hover {
+    color: #3366cc;
+    border-bottom: 2px solid #3366cc;
 }

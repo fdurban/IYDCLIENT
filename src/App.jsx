@@ -6,11 +6,9 @@ import Footer from './components/Footer/Footer'
 
 function App() {
   return (
-    <div className="app-container">
+    <div className='main'>
       <Navigation />
-      <div className="main-content">
-        <AppRoutes />
-      </div>
+      <AppRoutes />
       <Footer />
     </div>
   );

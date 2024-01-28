@@ -4,6 +4,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'MiFuenteFuerte';
   src: url('../public/Poppins/Poppins-Black.ttf') format('truetype');
@@ -11,18 +12,17 @@
   font-style: normal;
 }
 
-.app-container {
+.main {
   display: flex;
   flex-direction: column;
+  flex: 1
+}
+
+body {
+  font-family: 'MiFuente';
   min-height: 100vh;
 }
 
-.main-content {
-  flex: 1;
-}
-body {
-  font-family: 'MiFuente';
-}
 html {
   scroll-behavior: smooth;
 }

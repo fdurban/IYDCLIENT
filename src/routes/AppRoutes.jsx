@@ -12,7 +12,7 @@ const AppRoutes = () => {
 
     return (
         <Routes>
-            <Route path='/' element={< HomePage/>} />
+            <Route path='/' element={< HomePage />} />
             <Route path='/details/:id' element={<StudyPage />} />
             <Route path='/create' />
             <Route path='/profile/user/:user_id' element={<PrivateRoute />}>
@@ -21,7 +21,7 @@ const AppRoutes = () => {
             <Route path='profile/user/:user_id/subject/:subject' element={<PrivateRoute />}>
                 <Route path='' element={<CardsListPage />} />
             </Route>
-            <Route path='getallusers' element={<PrivateRoute />}>
+            <Route path='/getallusers' element={<PrivateRoute />}>
                 <Route path='' element={<UserListPage />} />
             </Route>
             <Route path='/users/:user_id/subject/:subject' element={<CardsListPage />}>
@@ -31,7 +31,7 @@ const AppRoutes = () => {
                 <Route path='' element={<ProfilePage />} />
             </Route>
             <Route path='/signup' element={<SignupPage />} />
-            <Route path='/login' element={<LoginPage/>} />
+            <Route path='/login' element={<LoginPage />} />
         </Routes>
     )
 }

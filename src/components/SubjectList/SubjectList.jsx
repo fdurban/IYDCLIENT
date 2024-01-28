@@ -1,30 +1,47 @@
-import CardsComponents from "../Card/CardComponent"
-import cardsService from '../../services/cards.services'
-import { Row } from 'react-bootstrap'
-import { useEffect, useState } from "react"
-import { Link, useParams } from 'react-router-dom'
-import userService from "../../services/user.services"
-import HomeCard from "../HomeCard/HomeCard"
+import React from "react";
+import { Link } from "react-router-dom";
+import { Row, Col } from "react-bootstrap";
+import HomeCard from "../HomeCard/HomeCard";
+import './SubjectList.css'
 
 const SubjectList = () => {
     return (
-        <>
-            <Row className='custom-padding-subject-list'>
-            <p>What subject studying today?</p>
-                <HomeCard title="Maths" subtitle={<Link to={`subject/MATH`}>click here</Link>}></HomeCard>
-                <HomeCard title="Anatomy" subtitle={<Link to={`subject/ANATOMY`}>click here</Link>}></HomeCard>
-                <HomeCard title="Biology" subtitle={<Link to={`subject/BIOLOGY`}>click here</Link>}></HomeCard>
-                <HomeCard title="Chemistry" subtitle={<Link to={`subject/CHEMISTRY`}>click here</Link>}></HomeCard>
-                <HomeCard title="Geography" subtitle={<Link to={`subject/GEOGRAPHY`}>click here</Link>}></HomeCard>
-                <HomeCard title="History" subtitle={<Link to={`subject/HISTORY`}>click here</Link>}></HomeCard>
-                <HomeCard title="Law" subtitle={<Link to={`subject/LAW`}>click here</Link>}></HomeCard>
-                <HomeCard title="Music" subtitle={<Link to={`subject/MUSIC`}>click here</Link>}></HomeCard>
-                <HomeCard title="Programming" subtitle={<Link to={`subject/PROGRAMMING`}>click here</Link>}></HomeCard>
-                <HomeCard title="Physics" subtitle={<Link to={`subject/PHYSICS`}>click here</Link>}></HomeCard>
-                <HomeCard title="Other" subtitle={<Link to={`subject/OTHER`}>click here</Link>}></HomeCard>
+        <Row>
+            <Col md={4}>
+                <HomeCard title="Maths" subtitle={<Link to={`subject/MATH`} className='subjectlink'>click here</Link>} />
+            </Col>
+            <Col md={4}>
+                <HomeCard title="Anatomy" subtitle={<Link to={`subject/ANATOMY`} className='subjectlink'>click here</Link>} />
+            </Col>
+            <Col md={4}>
+                <HomeCard title="Biology" subtitle={<Link to={`subject/BIOLOGY`} className='subjectlink'>click here</Link>} />
+            </Col>
+            <Col md={4}>
+                <HomeCard title="Chemistry" subtitle={<Link to={`subject/CHEMISTRY`} className='subjectlink'>click here</Link>} />
+            </Col>
+            <Col md={4}>
+                <HomeCard title="Geography" subtitle={<Link to={`subject/GEOGRAPHY`} className='subjectlink'>click here</Link>} />
+            </Col>
+            <Col md={4}>
+                <HomeCard title="History" subtitle={<Link to={`subject/HISTORY`} className='subjectlink'>click here</Link>} />
+            </Col>
+            <Col md={4}>
+                <HomeCard title="Law" subtitle={<Link to={`subject/LAW`} className='subjectlink'>click here</Link>} />
+            </Col>
+            <Col md={4}>
+                <HomeCard title="Music" subtitle={<Link to={`subject/MUSIC`} className='subjectlink'>click here</Link>} />
+            </Col>
+            <Col md={4}>
+                <HomeCard title="Programming" subtitle={<Link to={`subject/PROGRAMMING`} className='subjectlink'>click here</Link>} />
+            </Col>
+            <Col md={4}>
+                <HomeCard title="Physics" subtitle={<Link to={`subject/PHYSICS`} className='subjectlink'>click here</Link>} />
+            </Col>
+            <Col md={4}>
+                <HomeCard title="Other" subtitle={<Link to={`subject/OTHER`} className='subjectlink'>click here</Link>} />
+            </Col>
         </Row>
-        </>
-    )
-}
+    );
+};
 
-export default SubjectList
+export default SubjectList;
